@@ -1,0 +1,194 @@
+
+/* Shared Fizcal Funhouse application shell. Used by every page. */
+:root {
+  --ff-bg: #fcf9f8;
+  --ff-surface: #ffffff;
+  --ff-text: #1b1c1c;
+  --ff-muted: #4d4732;
+  --ff-gold: #ffd700;
+  --ff-gold-text: #705e00;
+  --ff-purple: #8d00d9;
+  --ff-purple-soft: #f3daff;
+  --ff-border: #1b1c1c;
+}
+
+body {
+  padding-bottom: 112px !important;
+}
+
+.ff-app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: var(--ff-bg);
+  border-bottom: 4px solid var(--ff-border);
+  box-shadow: 4px 4px 0 var(--ff-border);
+  font-family: "Quicksand", sans-serif;
+}
+
+.ff-header-inner {
+  max-width: 1200px;
+  min-height: 72px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.ff-brand {
+  color: var(--ff-purple);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.ff-brand .material-symbols-outlined {
+  color: var(--ff-gold-text);
+  font-size: 28px;
+  font-style: normal;
+}
+
+.ff-desktop-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ff-nav-link,
+.ff-icon-link {
+  color: var(--ff-muted);
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+}
+
+.ff-nav-link {
+  padding: 10px 12px;
+  border-radius: 16px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: .08em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.ff-nav-link:hover,
+.ff-icon-link:hover {
+  transform: translateY(-2px) rotate(-1deg);
+}
+
+.ff-nav-link.is-active {
+  color: var(--ff-gold-text);
+  background: var(--ff-gold);
+  border-color: var(--ff-border);
+  box-shadow: 3px 3px 0 var(--ff-border);
+}
+
+.ff-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 4px;
+}
+
+.ff-icon-link {
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--ff-border);
+  border-radius: 999px;
+  background: var(--ff-surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0 var(--ff-border);
+}
+
+.ff-icon-link.profile-link {
+  background: var(--ff-purple-soft);
+}
+
+.ff-icon-link.is-active {
+  background: var(--ff-gold);
+}
+
+.ff-mobile-nav {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  gap: 4px;
+  padding: 8px 10px calc(10px + env(safe-area-inset-bottom));
+  background: #f0eded;
+  border-top: 4px solid var(--ff-border);
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -4px 0 var(--ff-border);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.ff-mobile-link {
+  min-width: 66px;
+  color: var(--ff-muted);
+  text-decoration: none;
+  padding: 7px 8px;
+  border: 2px solid transparent;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: .04em;
+  font-weight: 800;
+}
+
+.ff-mobile-link .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.ff-mobile-link.is-active {
+  color: var(--ff-gold-text);
+  background: var(--ff-gold);
+  border-color: var(--ff-border);
+  box-shadow: 2px 2px 0 var(--ff-border);
+}
+
+.ff-mobile-link:active,
+.ff-nav-link:active,
+.ff-icon-link:active {
+  transform: translate(2px, 2px) scale(.96);
+  box-shadow: none;
+}
+
+@media (max-width: 850px) {
+  .ff-desktop-nav { display: none; }
+  .ff-mobile-nav { display: flex; }
+  .ff-header-inner { min-height: 64px; }
+  .ff-brand { font-size: 20px; }
+  .ff-header-actions { margin-left: auto; }
+  body { padding-bottom: 108px !important; }
+}
+
+@media (max-width: 420px) {
+  .ff-header-inner { padding-inline: 14px; }
+  .ff-brand { font-size: 18px; }
+  .ff-brand .material-symbols-outlined { font-size: 24px; }
+  .ff-icon-link.notifications-link { display: none; }
+  .ff-mobile-link { min-width: 58px; padding-inline: 5px; }
+}
