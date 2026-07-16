@@ -181,7 +181,7 @@
 <!-- Logo Section -->
 <div class="flex flex-col items-center mb-8">
 <div class="w-32 h-32 mb-4 hover:scale-110 transition-transform duration-300">
-<img alt="Fizcal Funhouse Goofy Bank Logo" class="w-full h-full object-contain filter drop-shadow-[4px_4px_0px_rgba(27,28,28,1)]" src="https://lh3.googleusercontent.com/aida/AP1WRLtN97Z-PdBp83Nwhm_Za8rxG7kiWpda_X0JaEVyEdCFlLDOnOVSloQAVBI8nGkG_Lwc55KrivQ7wBxeh1ZdQczwy__m63Fn53jTWZ32ebSnUeikqUpuHWxllEL0C5uge3-6XBCL3ADQyjJUw51AaoGWuESnZujY4RC8Im-hrTs_wcArShCsgDortlfXoo3fzVpe-9_v-cM3GbbHDrGY8RBhfxkI54byB1nGcRAnCBXH6bvYf80tBt8Eu4E7"/>
+<img alt="Fizcal Funhouse Goofy Bank Logo" class="w-full h-full object-contain filter drop-shadow-[4px_4px_0px_rgba(27,28,28,1)]" src="assets/images/logo.png"/>
 </div>
 <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-center text-secondary-container">
                 Welcome Back to the Funhouse!
@@ -192,26 +192,63 @@
 </div>
 <!-- Login Card -->
 <div class="bg-surface-container-lowest rounded-xl p-8 sticker-card">
-<form action="#" class="space-y-6" onsubmit="event.preventDefault(); window.location.href='home-base.html';">
+<!--
+    Ky formular kontrollohet nga assets/js/login.js.
+    Mos vendos onsubmit me window.location.href, sepse dashboard-i
+    duhet të hapet vetëm pasi backend-i të pranojë email/password.
+-->
+<form id="login-form" class="space-y-6">
 <!-- Email Field -->
 <div class="space-y-2">
-<label class="font-label-caps text-label-caps text-on-surface-variant ml-2" for="email">
-                        Electronic Mail Address
-                    </label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">alternate_email</span>
-<input class="w-full pl-12 pr-6 py-4 bg-surface rounded-full input-sticker text-on-surface font-body-md" id="email" placeholder="you@funhouse.com" type="email"/>
+    <!-- Vetëm etiketa; input-i nuk duhet të jetë brenda label-it -->
+    <label class="font-label-caps text-label-caps text-on-surface-variant ml-2"
+           for="email">
+        Electronic Mail Address
+    </label>
+
+    <div class="relative">
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">
+            alternate_email
+        </span>
+
+        <!-- Ky është input-i i vetëm me id="email" -->
+        <input
+            class="w-full pl-12 pr-6 py-4 bg-surface rounded-full input-sticker text-on-surface font-body-md"
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@funhouse.com"
+            autocomplete="email"
+            required
+        />
+    </div>
 </div>
-</div>
+
 <!-- Password Field -->
+
 <div class="space-y-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant ml-2" for="password">
                         The Secret Code
                     </label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">key</span>
-<input class="w-full pl-12 pr-6 py-4 bg-surface rounded-full input-sticker text-on-surface font-body-md" id="password" placeholder="••••••••" type="password"/>
-<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-secondary" type="button">
+<!-- Password-i dërgohet te API-ja vetëm kur klikohet submit -->
+<input
+    class="w-full pl-12 pr-6 py-4 bg-surface rounded-full input-sticker text-on-surface font-body-md"
+    id="password"
+    name="password"
+    placeholder="••••••••"
+    type="password"
+    autocomplete="current-password"
+    required
+/>
+<!-- Butoni vetëm shfaq/fsheh password-in; nuk dërgon formularin -->
+<button
+    id="toggle-password"
+    class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-secondary"
+    type="button"
+    aria-label="Show or hide password"
+>
 <span class="material-symbols-outlined">visibility</span>
 </button>
 </div>
@@ -220,20 +257,42 @@
 <div class="flex justify-end px-2">
 <a class="font-label-caps text-label-caps text-secondary hover:underline transition-all" href="#">Lost your keys?</a>
 </div>
+<!-- Mesazhi i gabimit nga backend-i shfaqet këtu -->
+<p
+    id="login-error"
+    class="hidden rounded-2xl border-2 border-error bg-error-container px-4 py-3 text-center font-bold text-on-error-container"
+    role="alert"
+></p>
+
 <!-- CTA Button -->
-<button class="w-full py-5 bg-primary-container text-on-primary-container font-headline-md text-headline-md rounded-full sticker-card flex items-center justify-center gap-3 hover:scale-[1.03] active:scale-95 transition-all group" type="submit">
+<!-- Ky buton aktivizon login.js dhe jo një redirect direkt në HTML -->
+<button
+    id="login-submit"
+    class="w-full py-5 bg-primary-container text-on-primary-container font-headline-md text-headline-md rounded-full sticker-card flex items-center justify-center gap-3 hover:scale-[1.03] active:scale-95 transition-all group disabled:cursor-not-allowed disabled:opacity-60"
+    type="submit"
+>
                     Let Me In! 🎢
                     <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
 </button>
 </form>
+<p class="text-center mt-6">
+    Don't have an account?
+
+    <a
+        href="register.html"
+        class="font-bold text-secondary underline"
+    >
+        Create account
+    </a>
+</p>
 <!-- Social Login / Alternative -->
 <div class="mt-8 pt-8 border-t-4 border-on-background/5 flex flex-col items-center gap-4">
 <p class="font-label-caps text-label-caps text-on-surface-variant">Or log in with magic:</p>
 <div class="flex gap-4">
-<button class="w-14 h-14 bg-surface-container rounded-full border-2 border-on-background flex items-center justify-center hover:bg-secondary-fixed transition-colors squish-effect">
+<button type="button" class="w-14 h-14 bg-surface-container rounded-full border-2 border-on-background flex items-center justify-center hover:bg-secondary-fixed transition-colors squish-effect">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
 </button>
-<button class="w-14 h-14 bg-surface-container rounded-full border-2 border-on-background flex items-center justify-center hover:bg-primary-fixed transition-colors squish-effect">
+<button type="button" class="w-14 h-14 bg-surface-container rounded-full border-2 border-on-background flex items-center justify-center hover:bg-primary-fixed transition-colors squish-effect">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">face</span>
 </button>
 </div>
@@ -259,27 +318,41 @@
         </div>
 </div>
 <script>
-        // Simple micro-interaction for the password toggle
-        document.querySelector('button[type="button"]').addEventListener('click', function() {
-            const input = document.getElementById('password');
-            const icon = this.querySelector('.material-symbols-outlined');
-            if (input.type === 'password') {
-                input.type = 'text';
-                icon.innerText = 'visibility_off';
-            } else {
-                input.type = 'password';
-                icon.innerText = 'visibility';
-            }
-        });
+    // Shfaq ose fsheh password-in pa dërguar formularin.
+    const togglePasswordButton = document.getElementById("toggle-password");
 
-        // Add "wobble" to the card on load
-        window.addEventListener('DOMContentLoaded', () => {
-            const card = document.querySelector('.sticker-card');
-            card.style.transform = 'rotate(-1deg) scale(0.95)';
-            setTimeout(() => {
-                card.style.transform = 'rotate(0deg) scale(1)';
-            }, 500);
-        });
-    </script>
+    togglePasswordButton?.addEventListener("click", function () {
+        const passwordInput = document.getElementById("password");
+        const icon = this.querySelector(".material-symbols-outlined");
+
+        if (!passwordInput || !icon) {
+            return;
+        }
+
+        const passwordIsHidden = passwordInput.type === "password";
+        passwordInput.type = passwordIsHidden ? "text" : "password";
+        icon.innerText = passwordIsHidden ? "visibility_off" : "visibility";
+    });
+
+    // Animacioni fillestar i kartës së login-it.
+    window.addEventListener("DOMContentLoaded", () => {
+        const card = document.querySelector(".sticker-card");
+
+        if (!card) {
+            return;
+        }
+
+        card.style.transform = "rotate(-1deg) scale(0.95)";
+
+        setTimeout(() => {
+            card.style.transform = "rotate(0deg) scale(1)";
+        }, 500);
+    });
+</script>
+
+
+<!-- api.js duhet të ngarkohet para login.js -->
+<script src="assets/js/api.js"></script>
+<script src="assets/js/login.js"></script>
 
 </body></html>

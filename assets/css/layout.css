@@ -15,6 +15,21 @@
 body {
   padding-bottom: 112px !important;
 }
+.ff-logout-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid #1b1c1c;
+    border-radius: 9999px;
+    padding: 8px 14px;
+    background: #ffd700;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ff-logout-button:hover {
+    transform: translateY(-2px);
+}
 
 .ff-app-header {
   position: sticky;

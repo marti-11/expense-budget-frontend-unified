@@ -192,11 +192,15 @@
 </div>
 <!-- Login Card -->
 <div class="bg-surface-container-lowest rounded-xl p-8 sticker-card">
-<form action="#" class="space-y-6" onsubmit="event.preventDefault(); window.location.href='home-base.html';">
+<form id="login-form" class="space-y-6">
 <!-- Email Field -->
 <div class="space-y-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant ml-2" for="email">
                         Electronic Mail Address
+    <input id="email"
+       type="email"
+       placeholder="you@funhouse.com" />
+
                     </label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">alternate_email</span>
@@ -204,6 +208,7 @@
 </div>
 </div>
 <!-- Password Field -->
+
 <div class="space-y-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant ml-2" for="password">
                         The Secret Code
@@ -281,5 +286,6 @@
             }, 500);
         });
     </script>
-
+<script src="assets/js/api.js"></script>
+<script src="assets/js/login.js"></script>
 </body></html>

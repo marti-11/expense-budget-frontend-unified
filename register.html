@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Register | Fizcal Funhouse</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+        rel="stylesheet"
+    />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#705d00",
+                        "primary-container": "#ffd700",
+                        secondary: "#8d00d9",
+                        background: "#fcf9f8",
+                        surface: "#ffffff",
+                        error: "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1b1c1c",
+                        "on-surface-variant": "#4d4732"
+                    },
+
+                    fontFamily: {
+                        headline: [
+                            "Plus Jakarta Sans"
+                        ],
+
+                        body: [
+                            "Quicksand"
+                        ]
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            background-color: #fcf9f8;
+        }
+
+        .sticker-shadow {
+            box-shadow:
+                7px 7px 0 0 rgba(27, 28, 28, 1);
+        }
+
+        .active-press:active {
+            transform: translate(3px, 3px);
+            box-shadow:
+                3px 3px 0 0 rgba(27, 28, 28, 1);
+        }
+    </style>
+</head>
+
+<body
+    class="font-body text-on-surface
+           min-h-screen flex items-center
+           justify-center px-5 py-10"
+>
+    <main class="w-full max-w-2xl">
+        <section
+            class="bg-white border-4 border-on-surface
+                   rounded-[2rem] p-7 md:p-10
+                   sticker-shadow"
+        >
+            <div class="text-center mb-8">
+                <div
+                    class="mx-auto w-20 h-20
+                           bg-primary-container
+                           border-4 border-on-surface
+                           rounded-full flex items-center
+                           justify-center mb-5"
+                >
+                    <span
+                        class="material-symbols-outlined
+                               text-4xl"
+                    >
+                        person_add
+                    </span>
+                </div>
+
+                <h1
+                    class="font-headline text-4xl
+                           font-extrabold"
+                >
+                    Join the Funhouse
+                </h1>
+
+                <p
+                    class="mt-3 text-on-surface-variant
+                           text-lg"
+                >
+                    Create your account and start managing
+                    your money.
+                </p>
+            </div>
+
+            <form
+                id="register-form"
+                class="grid grid-cols-1
+                       md:grid-cols-2 gap-5"
+            >
+                <!-- First Name -->
+                <div>
+                    <label
+                        for="register-first-name"
+                        class="block mb-2 font-bold"
+                    >
+                        First name
+                    </label>
+
+                    <input
+                        id="register-first-name"
+                        type="text"
+                        maxlength="100"
+                        autocomplete="given-name"
+                        placeholder="Martina"
+                        required
+                        class="w-full border-2
+                               border-on-surface
+                               rounded-full px-5 py-3
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <!-- Last Name -->
+                <div>
+                    <label
+                        for="register-last-name"
+                        class="block mb-2 font-bold"
+                    >
+                        Last name
+                    </label>
+
+                    <input
+                        id="register-last-name"
+                        type="text"
+                        maxlength="100"
+                        autocomplete="family-name"
+                        placeholder="Nezha"
+                        required
+                        class="w-full border-2
+                               border-on-surface
+                               rounded-full px-5 py-3
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <!-- Email -->
+                <div class="md:col-span-2">
+                    <label
+                        for="register-email"
+                        class="block mb-2 font-bold"
+                    >
+                        Email
+                    </label>
+
+                    <input
+                        id="register-email"
+                        type="email"
+                        maxlength="150"
+                        autocomplete="email"
+                        placeholder="name@example.com"
+                        required
+                        class="w-full border-2
+                               border-on-surface
+                               rounded-full px-5 py-3
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <!-- Phone -->
+                <div class="md:col-span-2">
+                    <label
+                        for="register-phone"
+                        class="block mb-2 font-bold"
+                    >
+                        Phone number
+                        <span
+                            class="font-normal
+                                   text-on-surface-variant"
+                        >
+                            (optional)
+                        </span>
+                    </label>
+
+                    <input
+                        id="register-phone"
+                        type="tel"
+                        maxlength="30"
+                        autocomplete="tel"
+                        placeholder="+355 69 000 0000"
+                        class="w-full border-2
+                               border-on-surface
+                               rounded-full px-5 py-3
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label
+                        for="register-password"
+                        class="block mb-2 font-bold"
+                    >
+                        Password
+                    </label>
+
+                    <div class="relative">
+                        <input
+                            id="register-password"
+                            type="password"
+                            minlength="6"
+                            autocomplete="new-password"
+                            placeholder="Minimum 6 characters"
+                            required
+                            class="w-full border-2
+                                   border-on-surface
+                                   rounded-full
+                                   pl-5 pr-14 py-3
+                                   focus:ring-0
+                                   focus:border-secondary"
+                        />
+
+                        <button
+                            type="button"
+                            data-toggle-password="register-password"
+                            class="absolute right-4 top-1/2
+                                   -translate-y-1/2"
+                            aria-label="Show password"
+                        >
+                            <span class="material-symbols-outlined">
+                                visibility
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div>
+                    <label
+                        for="register-confirm-password"
+                        class="block mb-2 font-bold"
+                    >
+                        Confirm password
+                    </label>
+
+                    <div class="relative">
+                        <input
+                            id="register-confirm-password"
+                            type="password"
+                            minlength="6"
+                            autocomplete="new-password"
+                            placeholder="Repeat password"
+                            required
+                            class="w-full border-2
+                                   border-on-surface
+                                   rounded-full
+                                   pl-5 pr-14 py-3
+                                   focus:ring-0
+                                   focus:border-secondary"
+                        />
+
+                        <button
+                            type="button"
+                            data-toggle-password="register-confirm-password"
+                            class="absolute right-4 top-1/2
+                                   -translate-y-1/2"
+                            aria-label="Show password"
+                        >
+                            <span class="material-symbols-outlined">
+                                visibility
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile Image URL -->
+                <div class="md:col-span-2">
+                    <label
+                        for="register-image-url"
+                        class="block mb-2 font-bold"
+                    >
+                        Profile image URL
+                        <span
+                            class="font-normal
+                                   text-on-surface-variant"
+                        >
+                            (optional)
+                        </span>
+                    </label>
+
+                    <input
+                        id="register-image-url"
+                        type="url"
+                        placeholder="https://example.com/photo.jpg"
+                        class="w-full border-2
+                               border-on-surface
+                               rounded-full px-5 py-3
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <!-- Error -->
+                <div
+                    id="register-error"
+                    role="alert"
+                    class="hidden md:col-span-2
+                           bg-error-container
+                           text-on-error-container
+                           border-2 border-error
+                           rounded-2xl p-4 font-bold"
+                ></div>
+
+                <!-- Success -->
+                <div
+                    id="register-success"
+                    role="status"
+                    class="hidden md:col-span-2
+                           bg-primary-container
+                           border-2 border-on-surface
+                           rounded-2xl p-4 font-bold"
+                ></div>
+
+                <!-- Submit -->
+                <div class="md:col-span-2">
+                    <button
+                        id="register-submit"
+                        type="submit"
+                        class="w-full bg-secondary
+                               text-white border-3
+                               border-on-surface
+                               rounded-full px-7 py-4
+                               text-lg font-bold
+                               sticker-shadow
+                               active-press
+                               disabled:opacity-50
+                               disabled:cursor-not-allowed"
+                    >
+                        Create Account
+                    </button>
+                </div>
+            </form>
+
+            <p class="text-center mt-8">
+                Already have an account?
+
+                <a
+                    href="login.html"
+                    class="font-bold text-secondary
+                           underline"
+                >
+                    Sign in
+                </a>
+            </p>
+        </section>
+    </main>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/register.js"></script>
+</body>
+</html>

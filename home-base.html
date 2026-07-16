@@ -1,372 +1,655 @@
 <!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Fizcal Funhouse - Sup, Big Spender!</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Quicksand:wght@500;700&amp;family=Space+Grotesk:wght@700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "on-primary-fixed": "#221b00",
-                    "surface-tint": "#705d00",
-                    "primary-fixed": "#ffe16d",
-                    "on-primary-fixed-variant": "#544600",
-                    "on-secondary-fixed": "#2f004c",
-                    "primary": "#705d00",
-                    "surface-variant": "#e4e2e1",
-                    "inverse-primary": "#e9c400",
-                    "tertiary-container": "#ffcfc2",
-                    "outline": "#7e775f",
-                    "surface-container-low": "#f6f3f2",
-                    "tertiary": "#b12d00",
-                    "on-tertiary": "#ffffff",
-                    "secondary": "#8d00d9",
-                    "surface-dim": "#dcd9d9",
-                    "on-background": "#1b1c1c",
-                    "on-secondary-fixed-variant": "#6e00ab",
-                    "on-error-container": "#93000a",
-                    "on-secondary-container": "#fffbff",
-                    "tertiary-fixed-dim": "#ffb5a0",
-                    "inverse-on-surface": "#f3f0f0",
-                    "on-tertiary-fixed-variant": "#872000",
-                    "on-primary-container": "#705e00",
-                    "error-container": "#ffdad6",
-                    "on-tertiary-container": "#b22e00",
-                    "primary-fixed-dim": "#e9c400",
-                    "on-tertiary-fixed": "#3b0900",
-                    "error": "#ba1a1a",
-                    "surface-container-lowest": "#ffffff",
-                    "surface": "#fcf9f8",
-                    "primary-container": "#ffd700",
-                    "background": "#fcf9f8",
-                    "tertiary-fixed": "#ffdbd1",
-                    "on-primary": "#ffffff",
-                    "secondary-fixed": "#f3daff",
-                    "surface-container-highest": "#e4e2e1",
-                    "outline-variant": "#d0c6ab",
-                    "surface-container-high": "#eae7e7",
-                    "surface-bright": "#fcf9f8",
-                    "on-error": "#ffffff",
-                    "on-surface": "#1b1c1c",
-                    "secondary-fixed-dim": "#e3b5ff",
-                    "inverse-surface": "#303030",
-                    "secondary-container": "#aa30fa",
-                    "on-secondary": "#ffffff",
-                    "on-surface-variant": "#4d4732",
-                    "surface-container": "#f0eded"
-            },
-            "borderRadius": {
-                    "DEFAULT": "1rem",
-                    "lg": "2rem",
-                    "xl": "3rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "margin-mobile": "20px",
-                    "base": "8px",
-                    "margin-desktop": "40px",
-                    "container-max": "1200px",
-                    "gutter": "16px"
-            },
-            "fontFamily": {
-                    "headline-lg-mobile": ["Plus Jakarta Sans"],
-                    "label-caps": ["Space Grotesk"],
-                    "body-lg": ["Quicksand"],
-                    "headline-lg": ["Plus Jakarta Sans"],
-                    "headline-md": ["Plus Jakarta Sans"],
-                    "body-md": ["Quicksand"]
-            },
-            "fontSize": {
-                    "headline-lg-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
-                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Home Base | Fizcal Funhouse</title>
+
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,container-queries"
+    ></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Quicksand:wght@500;700&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet"
+    />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet"
+    />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#705d00",
+                        "primary-container": "#ffd700",
+                        "primary-fixed": "#ffe16d",
+                        "on-primary-container": "#705e00",
+                        "on-primary-fixed-variant": "#544600",
+
+                        "secondary": "#8d00d9",
+                        "secondary-container": "#aa30fa",
+                        "secondary-fixed": "#f3daff",
+                        "on-secondary": "#ffffff",
+
+                        "tertiary": "#b12d00",
+                        "tertiary-container": "#ffcfc2",
+                        "tertiary-fixed": "#ffdbd1",
+
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+
+                        "background": "#fcf9f8",
+                        "surface": "#fcf9f8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-container": "#f0eded",
+                        "surface-container-high": "#eae7e7",
+                        "surface-container-highest": "#e4e2e1",
+
+                        "on-background": "#1b1c1c",
+                        "on-surface": "#1b1c1c",
+                        "on-surface-variant": "#4d4732",
+                        "outline": "#7e775f"
+                    },
+
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        lg: "2rem",
+                        xl: "3rem",
+                        full: "9999px"
+                    },
+
+                    spacing: {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "container-max": "1200px",
+                        "gutter": "16px"
+                    },
+
+                    fontFamily: {
+                        "headline-lg": [
+                            "Plus Jakarta Sans"
+                        ],
+
+                        "headline-md": [
+                            "Plus Jakarta Sans"
+                        ],
+
+                        "body-lg": [
+                            "Quicksand"
+                        ],
+
+                        "body-md": [
+                            "Quicksand"
+                        ],
+
+                        "label-caps": [
+                            "Space Grotesk"
+                        ]
+                    },
+
+                    fontSize: {
+                        "headline-lg": [
+                            "40px",
+                            {
+                                lineHeight: "48px",
+                                fontWeight: "800"
+                            }
+                        ],
+
+                        "headline-md": [
+                            "24px",
+                            {
+                                lineHeight: "32px",
+                                fontWeight: "700"
+                            }
+                        ],
+
+                        "body-lg": [
+                            "18px",
+                            {
+                                lineHeight: "28px",
+                                fontWeight: "500"
+                            }
+                        ],
+
+                        "body-md": [
+                            "16px",
+                            {
+                                lineHeight: "24px",
+                                fontWeight: "500"
+                            }
+                        ],
+
+                        "label-caps": [
+                            "12px",
+                            {
+                                lineHeight: "16px",
+                                letterSpacing: "0.1em",
+                                fontWeight: "700"
+                            }
+                        ]
+                    }
+                }
             }
-          },
-        },
-      }
+        };
     </script>
-<style>
-        .neo-shadow {
-            box-shadow: 6px 6px 0px 0px rgba(27,28,28,1);
-        }
-        .neo-shadow-sm {
-            box-shadow: 4px 4px 0px 0px rgba(27,28,28,1);
-        }
-        .neo-shadow-xs {
-            box-shadow: 2px 2px 0px 0px rgba(27,28,28,1);
-        }
-        
-        /* Squish Effect */
-        .active-press:active, .sticker-card:active, button:active {
-            transform: scale(0.95) !important;
-            box-shadow: 0px 0px 0px 0px rgba(27,28,28,1) !important;
+
+    <style>
+        html {
+            scroll-behavior: smooth;
         }
 
-        .progress-stripe {
-            background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-            background-size: 1rem 1rem;
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .neo-shadow {
+            box-shadow:
+                6px 6px 0 0 rgba(27, 28, 28, 1);
+        }
+
+        .neo-shadow-sm {
+            box-shadow:
+                4px 4px 0 0 rgba(27, 28, 28, 1);
+        }
+
+        .neo-shadow-xs {
+            box-shadow:
+                2px 2px 0 0 rgba(27, 28, 28, 1);
         }
 
         .sticker-card {
             border: 3px solid #1b1c1c;
-            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
-        /* Wobble Entrance */
-        @keyframes wobble {
-            0% { transform: scale(0); }
-            50% { transform: scale(1.1) rotate(-3deg); }
-            75% { transform: scale(0.95) rotate(2deg); }
-            100% { transform: scale(1) rotate(0); }
-        }
-        .animate-wobble {
-            animation: wobble 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        .sticker-card:hover {
+            transform: translateY(-2px);
         }
 
-        /* Wobble Grow Animation for Chart */
-        @keyframes wobble-grow {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            25% { transform: scale(1.05) rotate(2deg); }
-            50% { transform: scale(1) rotate(-2deg); }
-            75% { transform: scale(1.05) rotate(1deg); }
-        }
-        .animate-wobble-grow {
-            animation: wobble-grow 3s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        .active-press:active {
+            transform: translate(3px, 3px);
+            box-shadow: none;
         }
 
-        /* Segment Shimmer Overlay */
-        .segment-shimmer {
-            background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
-            background-size: 200% 200%;
-            animation: segment-spin 4s linear infinite;
+        .progress-stripe {
+            background-image:
+                linear-gradient(
+                    45deg,
+                    rgba(255, 255, 255, 0.2) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(255, 255, 255, 0.2) 50%,
+                    rgba(255, 255, 255, 0.2) 75%,
+                    transparent 75%,
+                    transparent
+                );
+
+            background-size: 1rem 1rem;
         }
 
-        @keyframes segment-spin {
-            0% { background-position: -100% -100%; }
-            100% { background-position: 100% 100%; }
+        .material-symbols-outlined {
+            font-variation-settings:
+                "FILL" 0,
+                "wght" 500,
+                "GRAD" 0,
+                "opsz" 24;
         }
 
-        /* Chart Rubber Squish */
-        .chart-squish {
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-        .chart-squish:active, .chart-squish:hover {
-            transform: scale(0.9) !important;
-        }
-
-        /* Floating Animation */
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
+
         .animate-float {
             animation: float 3s ease-in-out infinite;
         }
-
-        /* Pulse Animation */
-        @keyframes chart-pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        .animate-chart-pulse {
-            animation: chart-pulse 4s ease-in-out infinite;
-        }
-
-        /* Shimmer Effect */
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-        .shimmer-text {
-            background: linear-gradient(90deg, #705d00 0%, #ffe16d 50%, #705d00 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s linear infinite;
-        }
-
-        /* Shader Layer */
-        .shader-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.4;
-            pointer-events: none;
-        }
     </style>
-<link href="assets/css/layout.css" rel="stylesheet"/></head>
-<body class="bg-background text-on-background min-h-screen font-body-md pb-24 md:pb-0 relative overflow-x-hidden"><div id="app-header"></div>
-<!-- Shader Background -->
-<div class="shader-bg">{{DATA:ANIMATION:ANIMATION_1}}</div>
-<!-- Top App Bar -->
 
-<main class="max-w-container-max mx-auto px-margin-mobile py-8 md:py-12">
-<!-- Bento Grid Layout -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-<!-- Hero Balance Card -->
-<div class="md:col-span-8 sticker-card bg-primary-container p-8 rounded-lg neo-shadow animate-wobble transition-all">
-<div class="flex flex-col h-full justify-between">
-<div>
-<span class="inline-block bg-secondary text-on-secondary font-label-caps text-label-caps px-4 py-1 rounded-full mb-4 neo-shadow-xs">Cha-ching!</span>
-<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2 shimmer-text font-black">The Loot: $42,850.24</h2>
-<p class="font-body-lg text-body-lg text-on-primary-fixed-variant opacity-80">You're basically a dragon sitting on a gold pile. 🐉</p>
-</div>
-<div class="mt-8 flex gap-4">
-<button class="bg-secondary text-on-secondary px-8 py-4 rounded-full font-headline-md text-headline-md border-2 border-on-surface neo-shadow animate-float flex items-center gap-2">
-<span class="material-symbols-outlined">add_circle</span>
-                            Add More Loot
-                        </button>
-</div>
-</div>
-</div>
-<!-- Stats Column -->
-<div class="md:col-span-4 flex flex-col gap-gutter">
-<!-- Stashed -->
-<div class="sticker-card bg-surface-container-lowest p-6 rounded-lg neo-shadow-sm flex items-center gap-4 transition-all">
-<div class="bg-primary-fixed p-3 rounded-xl border-2 border-on-surface">
-<span class="material-symbols-outlined text-primary text-3xl">savings</span>
-</div>
-<div>
-<p class="font-label-caps text-label-caps text-outline">Stashed</p>
-<p class="font-headline-md text-headline-md text-on-surface">$12,400</p>
-</div>
-<span class="ml-auto text-4xl">🐿️</span>
-</div>
-<!-- Gone Forever -->
-<div class="sticker-card bg-surface-container-lowest p-6 rounded-lg neo-shadow-sm flex items-center gap-4 transition-all">
-<div class="bg-tertiary-container p-3 rounded-xl border-2 border-on-surface">
-<span class="material-symbols-outlined text-tertiary text-3xl">trending_down</span>
-</div>
-<div>
-<p class="font-label-caps text-label-caps text-outline">Gone Forever</p>
-<p class="font-headline-md text-headline-md text-on-surface">$8,215</p>
-</div>
-<span class="ml-auto text-4xl">💸</span>
-</div>
-</div>
-<!-- Wallet Health Section -->
-<div class="md:col-span-12 sticker-card bg-surface p-8 rounded-lg neo-shadow-sm transition-all">
-<div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
-<h3 class="font-headline-md text-headline-md flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary">favorite</span>
-                        Wallet Health: 65% full
-                    </h3>
-<p class="font-body-lg text-body-lg text-tertiary italic font-bold">"Stop buying avocado toast! 🥑"</p>
-</div>
-<div class="relative w-full h-12 bg-surface-container-highest border-4 border-on-surface rounded-full overflow-hidden">
-<div class="absolute top-0 left-0 h-full bg-secondary border-r-4 border-on-surface progress-stripe" style="width: 65%;"></div>
-<div class="absolute inset-0 flex items-center justify-center font-black text-on-secondary mix-blend-difference">65% OF TARGET REACHED</div>
-</div>
-</div>
-<!-- Chart Section -->
-<div class="md:col-span-7 sticker-card bg-white p-8 rounded-lg neo-shadow flex flex-col items-center transition-all">
-<div class="w-full mb-8">
-<h3 class="font-headline-md text-headline-md text-center">Where the money ran away to</h3>
-</div>
-<!-- Donut Visual (Enhanced with Rubber/Wobble/Squish Animations) -->
-<div class="animate-wobble-grow chart-squish relative w-64 h-64 rounded-full border-4 border-on-surface flex items-center justify-center overflow-hidden" style="background: conic-gradient(#8d00d9 0% 40%, #ffd700 40% 70%, #b12d00 70% 100%);">
-<div class="absolute inset-0 segment-shimmer opacity-30"></div>
-<div class="w-32 h-32 bg-white rounded-full border-4 border-on-surface flex items-center justify-center z-10 transition-transform duration-300 group-active:scale-110">
-<span class="material-symbols-outlined text-5xl">search_insights</span>
-</div>
-</div>
-<div class="mt-8 grid grid-cols-2 gap-4 w-full">
-<div class="flex items-center gap-2 font-label-caps text-label-caps">
-<span class="w-4 h-4 bg-secondary rounded-sm border border-on-surface"></span>
-                        Feed Me (40%) 🍕
-                    </div>
-<div class="flex items-center gap-2 font-label-caps text-label-caps">
-<span class="w-4 h-4 bg-primary-container rounded-sm border border-on-surface"></span>
-                        Vroom Vroom (30%) 🏎️
-                    </div>
-<div class="flex items-center gap-2 font-label-caps text-label-caps">
-<span class="w-4 h-4 bg-tertiary rounded-sm border border-on-surface"></span>
-                        Fun Stuff (30%) 🎉
-                    </div>
-</div>
-</div>
-<!-- Recent Activity -->
-<div class="md:col-span-5 sticker-card bg-surface-container-low p-8 rounded-lg neo-shadow-sm transition-all">
-<h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">history</span>
-                    Latest Shenanigans
-                </h3>
-<div class="space-y-4">
-<div class="bg-white p-4 rounded-lg border-2 border-on-surface neo-shadow-xs flex items-center justify-between hover:translate-x-1 transition-transform cursor-pointer active:scale-95">
-<div class="flex items-center gap-3">
-<div class="bg-primary-fixed p-2 rounded-lg border border-on-surface">
-<span class="material-symbols-outlined text-primary">shopping_cart</span>
-</div>
-<div>
-<p class="font-body-md font-bold">Whole Foods (The Expensive One)</p>
-<p class="text-xs text-outline font-label-caps">TODAY • 2:45 PM</p>
-</div>
-</div>
-<p class="font-headline-md text-tertiary">-$142.50</p>
-</div>
-<div class="bg-white p-4 rounded-lg border-2 border-on-surface neo-shadow-xs flex items-center justify-between hover:translate-x-1 transition-transform cursor-pointer active:scale-95">
-<div class="flex items-center gap-3">
-<div class="bg-secondary-fixed p-2 rounded-lg border border-on-surface">
-<span class="material-symbols-outlined text-secondary">directions_car</span>
-</div>
-<div>
-<p class="font-body-md font-bold">Uber (Lazy Ride)</p>
-<p class="text-xs text-outline font-label-caps">YESTERDAY • 11:15 PM</p>
-</div>
-</div>
-<p class="font-headline-md text-tertiary">-$24.90</p>
-</div>
-<div class="bg-white p-4 rounded-lg border-2 border-on-surface neo-shadow-xs flex items-center justify-between hover:translate-x-1 transition-transform cursor-pointer active:scale-95">
-<div class="flex items-center gap-3">
-<div class="bg-primary-fixed p-2 rounded-lg border border-on-surface">
-<span class="material-symbols-outlined text-primary">lunch_dining</span>
-</div>
-<div>
-<p class="font-body-md font-bold">Burgers &amp; Dreams</p>
-<p class="text-xs text-outline font-label-caps">JULY 10 • 1:30 PM</p>
-</div>
-</div>
-<p class="font-headline-md text-tertiary">-$35.00</p>
-</div>
-</div>
-<button class="w-full mt-6 py-3 font-label-caps text-label-caps text-secondary underline hover:no-underline active:scale-95 transition-transform">See all the ways you're broke →</button>
-</div>
-</div>
-</main>
-<!-- Bottom Nav Bar (Mobile) -->
+    <link
+        href="assets/css/layout.css"
+        rel="stylesheet"
+    />
+</head>
 
-<!-- Contextual FAB -->
-<button class="fixed bottom-24 right-6 md:bottom-10 md:right-10 bg-primary-container w-16 h-16 rounded-full border-4 border-on-surface neo-shadow active:translate-x-1 active:translate-y-1 active:shadow-none transition-all flex items-center justify-center animate-float z-40 active:scale-95">
-<span class="material-symbols-outlined text-4xl text-on-surface" style="font-variation-settings: 'FILL' 1;">add</span>
-</button>
-<script>
-        // Micro-interactions and effects
-        document.querySelectorAll('.sticker-card, .neo-shadow-sm, .neo-shadow-xs').forEach(card => {
-            if(!card.classList.contains('chart-squish')) {
-                card.addEventListener('mousedown', () => {
-                    card.style.transform = 'scale(0.95)';
-                });
-                card.addEventListener('mouseup', () => {
-                    card.style.transform = '';
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = '';
-                });
-            }
-        });
-    </script>
+<body
+    class="bg-background text-on-background
+           min-h-screen font-body-md
+           pb-24 md:pb-0 overflow-x-hidden"
+>
+    <!-- Header from layout.js -->
+    <div id="app-header"></div>
 
-<div id="app-navbar"></div><script src="assets/js/layout.js"></script></body></html>
+    <main
+        class="max-w-container-max mx-auto
+               px-margin-mobile py-8 md:py-12"
+    >
+        <!-- Dashboard error -->
+        <div
+            id="dashboard-error"
+            class="hidden mb-8 bg-error-container
+                   text-on-error-container
+                   border-3 border-error
+                   rounded-lg p-4 font-bold"
+            role="alert"
+        ></div>
+
+        <!-- Welcome -->
+        <div class="mb-8">
+            <p
+                id="dashboard-greeting"
+                class="font-label-caps text-label-caps
+                       text-secondary mb-2"
+            >
+                Welcome back
+            </p>
+
+            <h1
+                class="font-headline-lg text-headline-lg"
+            >
+                Your Financial Dashboard
+            </h1>
+
+            <p
+                id="dashboard-period"
+                class="font-body-lg text-body-lg
+                       text-on-surface-variant mt-2"
+            >
+                Loading current month...
+            </p>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div
+            class="grid grid-cols-1
+                   md:grid-cols-12 gap-gutter"
+        >
+            <!-- Balance -->
+            <section
+                class="md:col-span-8 sticker-card
+                       bg-primary-container p-8
+                       rounded-lg neo-shadow"
+            >
+                <div
+                    class="flex flex-col h-full
+                           justify-between"
+                >
+                    <div>
+                        <span
+                            class="inline-block bg-secondary
+                                   text-on-secondary
+                                   font-label-caps text-label-caps
+                                   px-4 py-1 rounded-full
+                                   mb-4 neo-shadow-xs"
+                        >
+                            Current Balance
+                        </span>
+
+                        <h2
+                            id="dashboard-balance"
+                            class="font-headline-lg
+                                   text-headline-lg
+                                   text-on-primary-container
+                                   font-black"
+                        >
+                            €0.00
+                        </h2>
+
+                        <p
+                            id="dashboard-balance-message"
+                            class="font-body-lg text-body-lg
+                                   text-on-primary-fixed-variant
+                                   mt-2"
+                        >
+                            Loading your balance...
+                        </p>
+                    </div>
+
+                    <div class="mt-8">
+                        <a
+                            href="spending-spree.html#add-transaction-section"
+                            class="inline-flex items-center gap-2
+                                   bg-secondary text-on-secondary
+                                   px-7 py-4 rounded-full
+                                   font-bold border-2
+                                   border-on-surface neo-shadow-sm
+                                   active-press"
+                        >
+                            <span class="material-symbols-outlined">
+                                add_circle
+                            </span>
+
+                            Add Transaction
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Income and Expenses -->
+            <div
+                class="md:col-span-4
+                       flex flex-col gap-gutter"
+            >
+                <!-- Income -->
+                <section
+                    class="sticker-card
+                           bg-surface-container-lowest
+                           p-6 rounded-lg neo-shadow-sm
+                           flex items-center gap-4"
+                >
+                    <div
+                        class="bg-primary-fixed p-3
+                               rounded-xl
+                               border-2 border-on-surface"
+                    >
+                        <span
+                            class="material-symbols-outlined
+                                   text-primary text-3xl"
+                        >
+                            trending_up
+                        </span>
+                    </div>
+
+                    <div>
+                        <p
+                            class="font-label-caps
+                                   text-label-caps
+                                   text-outline"
+                        >
+                            Total Income
+                        </p>
+
+                        <p
+                            id="dashboard-income"
+                            class="font-headline-md
+                                   text-headline-md
+                                   text-on-surface"
+                        >
+                            €0.00
+                        </p>
+                    </div>
+
+                    <span class="ml-auto text-4xl">
+                        💰
+                    </span>
+                </section>
+
+                <!-- Expenses -->
+                <section
+                    class="sticker-card
+                           bg-surface-container-lowest
+                           p-6 rounded-lg neo-shadow-sm
+                           flex items-center gap-4"
+                >
+                    <div
+                        class="bg-tertiary-container p-3
+                               rounded-xl
+                               border-2 border-on-surface"
+                    >
+                        <span
+                            class="material-symbols-outlined
+                                   text-tertiary text-3xl"
+                        >
+                            trending_down
+                        </span>
+                    </div>
+
+                    <div>
+                        <p
+                            class="font-label-caps
+                                   text-label-caps
+                                   text-outline"
+                        >
+                            Total Expenses
+                        </p>
+
+                        <p
+                            id="dashboard-expenses"
+                            class="font-headline-md
+                                   text-headline-md
+                                   text-on-surface"
+                        >
+                            €0.00
+                        </p>
+                    </div>
+
+                    <span class="ml-auto text-4xl">
+                        💸
+                    </span>
+                </section>
+            </div>
+
+            <!-- Budget Health -->
+            <section
+                class="md:col-span-12 sticker-card
+                       bg-surface p-8 rounded-lg
+                       neo-shadow-sm"
+            >
+                <div
+                    class="flex flex-col md:flex-row
+                           md:items-center justify-between
+                           gap-4 mb-6"
+                >
+                    <h2
+                        class="font-headline-md
+                               text-headline-md
+                               flex items-center gap-2"
+                    >
+                        <span
+                            class="material-symbols-outlined
+                                   text-secondary"
+                        >
+                            favorite
+                        </span>
+
+                        Budget Health:
+                        <span id="dashboard-budget-percentage">
+                            0%
+                        </span>
+                    </h2>
+
+                    <p
+                        id="dashboard-budget-message"
+                        class="font-body-lg text-body-lg
+                               text-tertiary italic font-bold"
+                    >
+                        Loading your budgets...
+                    </p>
+                </div>
+
+                <div
+                    class="relative w-full h-12
+                           bg-surface-container-highest
+                           border-4 border-on-surface
+                           rounded-full overflow-hidden"
+                >
+                    <div
+                        id="dashboard-budget-progress"
+                        class="absolute top-0 left-0
+                               h-full bg-secondary
+                               border-r-4 border-on-surface
+                               progress-stripe
+                               transition-all duration-500"
+                        style="width: 0%"
+                    ></div>
+
+                    <div
+                        id="dashboard-budget-progress-text"
+                        class="absolute inset-0 flex
+                               items-center justify-center
+                               font-black"
+                    >
+                        0% OF BUDGET USED
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expense Chart -->
+            <section
+                class="md:col-span-7 sticker-card
+                       bg-white p-8 rounded-lg
+                       neo-shadow"
+            >
+                <div class="mb-8">
+                    <h2
+                        class="font-headline-md
+                               text-headline-md text-center"
+                    >
+                        Expenses by Category
+                    </h2>
+
+                    <p
+                        class="text-center
+                               text-on-surface-variant mt-2"
+                    >
+                        Current month
+                    </p>
+                </div>
+
+                <div
+                    class="flex flex-col items-center"
+                >
+                    <!-- Dynamic donut -->
+                    <div
+                        id="dashboard-expense-chart"
+                        class="relative w-64 h-64
+                               rounded-full
+                               border-4 border-on-surface
+                               flex items-center justify-center"
+                        style="background: #e4e2e1"
+                    >
+                        <div
+                            class="w-32 h-32 bg-white
+                                   rounded-full
+                                   border-4 border-on-surface
+                                   flex flex-col items-center
+                                   justify-center text-center p-3"
+                        >
+                            <span
+                                class="material-symbols-outlined
+                                       text-4xl"
+                            >
+                                donut_large
+                            </span>
+
+                            <span
+                                id="dashboard-chart-total"
+                                class="font-bold mt-1"
+                            >
+                                €0.00
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic legend -->
+                    <div
+                        id="dashboard-chart-legend"
+                        class="mt-8 grid grid-cols-1
+                               sm:grid-cols-2 gap-4 w-full"
+                    >
+                        <p
+                            class="text-on-surface-variant
+                                   text-center sm:col-span-2"
+                        >
+                            Loading expense categories...
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Transactions -->
+            <section
+                class="md:col-span-5 sticker-card
+                       bg-surface-container-low
+                       p-8 rounded-lg neo-shadow-sm"
+            >
+                <h2
+                    class="font-headline-md
+                           text-headline-md mb-6
+                           flex items-center gap-2"
+                >
+                    <span
+                        class="material-symbols-outlined
+                               text-primary"
+                    >
+                        history
+                    </span>
+
+                    Recent Transactions
+                </h2>
+
+                <div
+                    id="dashboard-recent-transactions"
+                    class="space-y-4"
+                >
+                    <p class="text-on-surface-variant">
+                        Loading transactions...
+                    </p>
+                </div>
+
+                <a
+                    href="spending-spree.html"
+                    class="block w-full mt-6 py-3
+                           text-center font-label-caps
+                           text-label-caps text-secondary
+                           underline hover:no-underline"
+                >
+                    See all transactions →
+                </a>
+            </section>
+        </div>
+    </main>
+
+    <!-- Floating add button -->
+    <a
+        href="spending-spree.html#add-transaction-section"
+        aria-label="Add Transaction"
+        class="fixed bottom-24 right-6
+               md:bottom-10 md:right-10
+               bg-primary-container
+               w-16 h-16 rounded-full
+               border-4 border-on-surface
+               neo-shadow active-press
+               transition-all
+               flex items-center justify-center
+               animate-float z-40"
+    >
+        <span
+            class="material-symbols-outlined
+                   text-4xl text-on-surface"
+        >
+            add
+        </span>
+    </a>
+
+    <!-- Mobile navbar -->
+    <div id="app-navbar"></div>
+
+  <script src="assets/js/auth-guard.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

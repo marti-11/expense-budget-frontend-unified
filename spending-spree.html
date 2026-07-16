@@ -1,279 +1,761 @@
 <!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Spending Spree - Fizcal Funhouse</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,700;0,800;1,800&amp;family=Space+Grotesk:wght@700&amp;family=Quicksand:wght@500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Spending Spree | Fizcal Funhouse</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&family=Quicksand:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Shared layout -->
+    <link
+        href="assets/css/layout.css"
+        rel="stylesheet"
+    />
+
+    <script>
         tailwind.config = {
             darkMode: "class",
+
             theme: {
                 extend: {
-                    "colors": {
-                        "on-primary-fixed": "#221b00",
-                        "surface-tint": "#705d00",
-                        "primary-fixed": "#ffe16d",
-                        "on-primary-fixed-variant": "#544600",
-                        "on-secondary-fixed": "#2f004c",
-                        "primary": "#705d00",
-                        "surface-variant": "#e4e2e1",
-                        "inverse-primary": "#e9c400",
-                        "tertiary-container": "#ffcfc2",
-                        "outline": "#7e775f",
-                        "surface-container-low": "#f6f3f2",
-                        "tertiary": "#b12d00",
-                        "on-tertiary": "#ffffff",
-                        "secondary": "#8d00d9",
-                        "surface-dim": "#dcd9d9",
-                        "on-background": "#1b1c1c",
-                        "on-secondary-fixed-variant": "#6e00ab",
-                        "on-error-container": "#93000a",
-                        "on-secondary-container": "#fffbff",
-                        "tertiary-fixed-dim": "#ffb5a0",
-                        "inverse-on-surface": "#f3f0f0",
-                        "on-tertiary-fixed-variant": "#872000",
-                        "on-primary-container": "#705e00",
-                        "error-container": "#ffdad6",
-                        "on-tertiary-container": "#b22e00",
-                        "primary-fixed-dim": "#e9c400",
-                        "on-tertiary-fixed": "#3b0900",
-                        "error": "#ba1a1a",
-                        "surface-container-lowest": "#ffffff",
-                        "surface": "#fcf9f8",
+                    colors: {
+                        primary: "#705d00",
                         "primary-container": "#ffd700",
-                        "background": "#fcf9f8",
-                        "tertiary-fixed": "#ffdbd1",
-                        "on-primary": "#ffffff",
-                        "secondary-fixed": "#f3daff",
-                        "surface-container-highest": "#e4e2e1",
-                        "outline-variant": "#d0c6ab",
-                        "surface-container-high": "#eae7e7",
-                        "surface-bright": "#fcf9f8",
-                        "on-error": "#ffffff",
-                        "on-surface": "#1b1c1c",
-                        "secondary-fixed-dim": "#e3b5ff",
-                        "inverse-surface": "#303030",
+                        "primary-fixed": "#ffe16d",
+
+                        secondary: "#8d00d9",
                         "secondary-container": "#aa30fa",
-                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#f3daff",
+
+                        tertiary: "#b12d00",
+                        "tertiary-container": "#ffcfc2",
+                        "tertiary-fixed": "#ffdbd1",
+
+                        error: "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+
+                        background: "#fcf9f8",
+                        surface: "#fcf9f8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-container": "#f0eded",
+                        "surface-container-high": "#eae7e7",
+
+                        "on-surface": "#1b1c1c",
                         "on-surface-variant": "#4d4732",
-                        "surface-container": "#f0eded"
+                        outline: "#7e775f"
                     },
-                    "borderRadius": {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
+
+                    fontFamily: {
+                        headline: [
+                            "Plus Jakarta Sans",
+                            "sans-serif"
+                        ],
+
+                        body: [
+                            "Quicksand",
+                            "sans-serif"
+                        ],
+
+                        label: [
+                            "Space Grotesk",
+                            "sans-serif"
+                        ]
                     },
-                    "spacing": {
-                        "margin-mobile": "20px",
-                        "base": "8px",
-                        "margin-desktop": "40px",
-                        "container-max": "1200px",
-                        "gutter": "16px"
+
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        lg: "2rem",
+                        xl: "3rem",
+                        full: "9999px"
                     },
-                    "fontFamily": {
-                        "headline-lg-mobile": ["Plus Jakarta Sans"],
-                        "label-caps": ["Space Grotesk"],
-                        "body-lg": ["Quicksand"],
-                        "headline-lg": ["Plus Jakarta Sans"],
-                        "headline-md": ["Plus Jakarta Sans"],
-                        "body-md": ["Quicksand"]
-                    },
-                    "fontSize": {
-                        "headline-lg-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
-                        "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+
+                    maxWidth: {
+                        content: "1200px"
                     }
-                },
-            },
-        }
+                }
+            }
+        };
     </script>
-<style>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #fcf9f8;
             -webkit-tap-highlight-color: transparent;
         }
-        .block-shadow {
-            box-shadow: 6px 6px 0px 0px rgba(27, 28, 28, 1);
-        }
-        .active-press:active {
-            transform: translate(3px, 3px);
-            box-shadow: 3px 3px 0px 0px rgba(27, 28, 28, 1);
-        }
+
         .sticker-card {
+            border: 4px solid #1b1c1c;
+            box-shadow: 8px 8px 0 #1b1c1c;
+        }
+
+        .sticker-card-small {
             border: 3px solid #1b1c1c;
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 5px 5px 0 #1b1c1c;
         }
-        .sticker-card:hover {
-            transform: rotate(-1deg) scale(1.01);
+
+        .button-shadow {
+            box-shadow: 4px 4px 0 #1b1c1c;
         }
+
+        .button-shadow:active {
+            transform: translate(3px, 3px);
+            box-shadow: 1px 1px 0 #1b1c1c;
+        }
+
+        .section-line {
+            height: 4px;
+            background: #e4e2e1;
+            border-radius: 9999px;
+        }
+
         .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .fab-bounce {
-            animation: bounce-custom 2s infinite;
-        }
-        @keyframes bounce-custom {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            font-variation-settings:
+                "FILL" 0,
+                "wght" 600,
+                "GRAD" 0,
+                "opsz" 24;
         }
     </style>
-<link href="assets/css/layout.css" rel="stylesheet"/></head>
-<body class="font-body-md text-on-surface"><div id="app-header"></div>
-<!-- Top Navigation -->
+</head>
 
-<main class="max-w-container-max mx-auto px-margin-mobile pt-8 pb-32">
-<!-- Hero Section with Image_14 -->
-<div class="relative w-full mb-10 sticker-card bg-surface-container-highest p-6 rounded-lg block-shadow flex flex-col md:flex-row items-center gap-6 overflow-hidden">
-<div class="relative z-10 flex-1">
-<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-2">Spending Spree 💸</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Look at all those shiny things you bought! Let's see how much damage we did to the piggy bank today.</p>
-</div>
-<div class="relative w-40 h-40 md:w-56 md:h-56 shrink-0 z-10">
-<img alt="Fizcal Funhouse Mascot Logo" class="w-full h-full object-contain drop-shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_zIhP1Ca4TXCvoChU9DgXgSz6eY3vljGhqGE2RIbO3PmosXJFiUsygXiboQD2T-_tjxJqvCBzcLxJcS00RuFtn0BDwz9L9v6QHGKguVCOclUgRNZ_zmzIk5iUJH87JQfuUTMlLmd1DUVtHEH7BdOFozGINl4YbMv8l5fBwQOTTFyB_lC5e0cs2E55St1hGECo8rsIcEWD93pPleXSO3WWJmyJ8MCAGwf2n2IGD5wrJvRjjdjPujtO2Q"/>
-</div>
-<!-- Decorative bubbly shapes in background -->
-<div class="absolute -top-10 -right-10 w-40 h-40 bg-secondary-container rounded-full opacity-20 blur-2xl"></div>
-<div class="absolute -bottom-10 -left-10 w-60 h-60 bg-primary-container rounded-full opacity-30 blur-3xl"></div>
-</div>
-<!-- Search Bar -->
-<div class="mb-10 group">
-<div class="relative flex items-center">
-<span class="absolute left-6 material-symbols-outlined text-on-surface-variant">search</span>
-<input class="w-full pl-16 pr-6 py-5 rounded-full border-4 border-on-surface block-shadow focus:ring-0 focus:border-secondary transition-all outline-none font-body-lg text-body-lg" placeholder="Find where you blew it..." type="text"/>
-</div>
-</div>
-<!-- Transactions Container -->
-<div class="space-y-12">
-<!-- Group: Just Today -->
-<section>
-<div class="flex items-center gap-4 mb-6">
-<h3 class="font-headline-md text-headline-md bg-secondary text-on-secondary px-4 py-1 rounded-lg border-2 border-on-surface -rotate-1">Just Today</h3>
-<div class="flex-grow h-1 bg-on-surface opacity-10 rounded-full"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<!-- Whole Foods -->
-<div class="sticker-card bg-surface p-6 rounded-lg block-shadow active-press flex items-center justify-between group">
-<div class="flex items-center gap-4">
-<div class="w-14 h-14 bg-tertiary-fixed rounded-full border-2 border-on-surface flex items-center justify-center text-2xl group-hover:rotate-12 transition-transform">
-                                🥗
-                            </div>
-<div>
-<h4 class="font-headline-md text-headline-md leading-tight">Whole Foods</h4>
-<p class="font-body-md text-body-md text-on-surface-variant italic">Expensive Grass &amp; Water</p>
-</div>
-</div>
-<div class="text-right">
-<span class="font-headline-md text-headline-md text-tertiary">-$84.20</span>
-<p class="font-label-caps text-label-caps text-on-surface-variant">12:30 PM</p>
-</div>
-</div>
-<!-- Stripe Payout -->
-<div class="sticker-card bg-primary-container p-6 rounded-lg block-shadow active-press flex items-center justify-between group">
-<div class="flex items-center gap-4">
-<div class="w-14 h-14 bg-white rounded-full border-2 border-on-surface flex items-center justify-center text-2xl group-hover:rotate-12 transition-transform">
-                                🧚‍♀️
-                            </div>
-<div>
-<h4 class="font-headline-md text-headline-md leading-tight">Stripe Payout</h4>
-<p class="font-body-md text-body-md text-on-surface-variant italic">The Money Fairy Visited!</p>
-</div>
-</div>
-<div class="text-right">
-<span class="font-headline-md text-headline-md text-primary">+$1,250.00</span>
-<p class="font-label-caps text-label-caps text-on-surface-variant">09:15 AM</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Group: Ancient History -->
-<section>
-<div class="flex items-center gap-4 mb-6">
-<h3 class="font-headline-md text-headline-md bg-tertiary text-on-tertiary px-4 py-1 rounded-lg border-2 border-on-surface rotate-1">Ancient History</h3>
-<div class="flex-grow h-1 bg-on-surface opacity-10 rounded-full"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<!-- Equinox -->
-<div class="sticker-card bg-surface p-6 rounded-lg block-shadow active-press flex flex-col justify-between group h-full">
-<div class="flex justify-between items-start mb-4">
-<div class="w-14 h-14 bg-secondary-fixed rounded-full border-2 border-on-surface flex items-center justify-center text-2xl group-hover:-rotate-12 transition-transform">
-                                🏋️‍♂️
-                            </div>
-<div class="text-right">
-<span class="font-headline-md text-headline-md text-tertiary">-$250.00</span>
-<p class="font-label-caps text-label-caps text-on-surface-variant">Last Tuesday</p>
-</div>
-</div>
-<div>
-<h4 class="font-headline-md text-headline-md leading-tight">Equinox</h4>
-<p class="font-body-md text-body-md text-on-surface-variant italic">Paying to be Sweaty</p>
-</div>
-</div>
-<!-- Netflix -->
-<div class="sticker-card bg-surface p-6 rounded-lg block-shadow active-press flex flex-col justify-between group h-full">
-<div class="flex justify-between items-start mb-4">
-<div class="w-14 h-14 bg-error-container rounded-full border-2 border-on-surface flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                                🍿
-                            </div>
-<div class="text-right">
-<span class="font-headline-md text-headline-md text-tertiary">-$19.99</span>
-<p class="font-label-caps text-label-caps text-on-surface-variant">Last Thursday</p>
-</div>
-</div>
-<div>
-<h4 class="font-headline-md text-headline-md leading-tight">Netflix</h4>
-<p class="font-body-md text-body-md text-on-surface-variant italic">Endless Procrastination</p>
-</div>
-</div>
-<!-- Pizza -->
-<div class="sticker-card bg-surface p-6 rounded-lg block-shadow active-press flex flex-col justify-between group h-full">
-<div class="flex justify-between items-start mb-4">
-<div class="w-14 h-14 bg-primary-fixed rounded-full border-2 border-on-surface flex items-center justify-center text-2xl group-hover:rotate-3 transition-transform">
-                                🍕
-                            </div>
-<div class="text-right">
-<span class="font-headline-md text-headline-md text-tertiary">-$32.50</span>
-<p class="font-label-caps text-label-caps text-on-surface-variant">Last Friday</p>
-</div>
-</div>
-<div>
-<h4 class="font-headline-md text-headline-md leading-tight">Pizza Palace</h4>
-<p class="font-body-md text-body-md text-on-surface-variant italic">Late Night Decisions</p>
-</div>
-</div>
-</div>
-</section>
-</div>
-</main>
-<!-- FAB -->
-<button class="fixed bottom-28 right-8 z-[60] bg-primary-container text-on-primary-container p-5 rounded-full border-4 border-on-surface block-shadow active-press flex items-center gap-3 hover:scale-110 transition-transform fab-bounce">
-<span class="material-symbols-outlined text-3xl font-bold">add</span>
-<span class="font-headline-md pr-2">Spent More?</span>
-</button>
-<!-- Bottom Navigation Bar -->
+<body
+    class="min-h-screen overflow-x-hidden
+           bg-background text-on-surface
+           font-body"
+>
+    <!-- Header generated by layout.js -->
+    <div id="app-header"></div>
 
-<script>
-        // Simple click interaction logic for buttons
-        document.querySelectorAll('.active-press').forEach(button => {
-            button.addEventListener('mousedown', () => {
-                button.style.transform = 'translate(3px, 3px)';
-                button.style.boxShadow = '3px 3px 0px 0px rgba(27,28,28,1)';
-            });
-            button.addEventListener('mouseup', () => {
-                button.style.transform = '';
-                button.style.boxShadow = '';
-            });
-            button.addEventListener('mouseleave', () => {
-                button.style.transform = '';
-                button.style.boxShadow = '';
-            });
-        });
-    </script>
-<div id="app-navbar"></div><script src="assets/js/layout.js"></script></body></html>
+    <main
+        class="max-w-content mx-auto
+               px-5 md:px-10
+               py-8 md:py-12
+               pb-32"
+    >
+        <!-- General error -->
+        <div
+            id="transactions-page-error"
+            role="alert"
+            class="hidden mb-8
+                   bg-error-container
+                   text-on-error-container
+                   border-4 border-error
+                   rounded-2xl p-4 font-bold"
+        ></div>
+
+        <!-- Hero -->
+        <section
+            class="sticker-card
+                   relative overflow-hidden
+                   rounded-[2rem]
+                   p-6 md:p-10 mb-12
+                   bg-gradient-to-br
+                   from-secondary-fixed
+                   via-surface-container-lowest
+                   to-primary-fixed"
+        >
+            <div
+                class="grid grid-cols-1
+                       md:grid-cols-[1fr_180px]
+                       items-center gap-8"
+            >
+                <div>
+                    <p
+                        class="font-label uppercase
+                               tracking-[0.15em]
+                               text-secondary mb-3"
+                    >
+                        Transaction history
+                    </p>
+
+                    <h1
+                        class="font-headline
+                               text-4xl md:text-5xl
+                               font-extrabold mb-4"
+                    >
+                        Spending Spree 💸
+                    </h1>
+
+                    <p
+                        class="max-w-2xl
+                               text-lg md:text-xl
+                               text-on-surface-variant
+                               font-semibold"
+                    >
+                        Look at all those shiny things you bought.
+                        Add income and expenses and keep an eye on
+                        your spending.
+                    </p>
+                </div>
+
+                <div
+                    class="hidden md:flex
+                           justify-center items-center"
+                >
+                    <div
+                        class="w-36 h-36
+                               bg-white
+                               border-4 border-on-surface
+                               rotate-3
+                               flex items-center justify-center
+                               button-shadow"
+                    >
+                        <span
+                            class="material-symbols-outlined
+                                   text-7xl text-secondary"
+                        >
+                            receipt_long
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add Transaction -->
+        <section
+            class="sticker-card
+                   bg-surface-container-lowest
+                   rounded-[2rem]
+                   p-6 md:p-8 mb-12"
+        >
+            <div
+                class="flex items-center gap-3 mb-7"
+            >
+                <span
+                    class="material-symbols-outlined
+                           text-4xl text-secondary"
+                >
+                    add_card
+                </span>
+
+                <h2
+                    class="font-headline
+                           text-2xl md:text-3xl
+                           font-extrabold"
+                >
+                    Add Transaction
+                </h2>
+            </div>
+
+            <form
+                id="transaction-form"
+                class="grid grid-cols-1
+                       md:grid-cols-2 gap-5"
+            >
+                <!-- Title -->
+                <div>
+                    <label
+                        for="transaction-title"
+                        class="block mb-2
+                               font-label uppercase
+                               tracking-wider text-sm"
+                    >
+                        Title
+                    </label>
+
+                    <input
+                        id="transaction-title"
+                        type="text"
+                        maxlength="150"
+                        placeholder="Example: Supermarket"
+                        required
+                        class="w-full
+                               border-2 border-on-surface
+                               rounded-full px-5 py-3
+                               bg-white
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <!-- Amount -->
+                <div>
+                    <label
+                        for="transaction-amount"
+                        class="block mb-2
+                               font-label uppercase
+                               tracking-wider text-sm"
+                    >
+                        Amount
+                    </label>
+
+                    <input
+                        id="transaction-amount"
+                        type="number"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="0.00"
+                        required
+                        class="w-full
+                               border-2 border-on-surface
+                               rounded-full px-5 py-3
+                               bg-white
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <!-- Type -->
+                <div>
+                    <label
+                        for="transaction-type"
+                        class="block mb-2
+                               font-label uppercase
+                               tracking-wider text-sm"
+                    >
+                        Transaction type
+                    </label>
+
+                    <select
+                        id="transaction-type"
+                        required
+                        class="w-full
+                               border-2 border-on-surface
+                               rounded-full px-5 py-3
+                               bg-white
+                               focus:ring-0
+                               focus:border-secondary"
+                    >
+                        <option value="">
+                            Select type
+                        </option>
+
+                        <option value="0">
+                            Expense
+                        </option>
+
+                        <option value="1">
+                            Income
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Category -->
+                <div>
+                    <label
+                        for="transaction-category"
+                        class="block mb-2
+                               font-label uppercase
+                               tracking-wider text-sm"
+                    >
+                        Category
+                    </label>
+
+                    <select
+                        id="transaction-category"
+                        required
+                        class="w-full
+                               border-2 border-on-surface
+                               rounded-full px-5 py-3
+                               bg-white
+                               focus:ring-0
+                               focus:border-secondary"
+                    >
+                        <option value="">
+                            Select category
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Date -->
+                <div>
+                    <label
+                        for="transaction-date"
+                        class="block mb-2
+                               font-label uppercase
+                               tracking-wider text-sm"
+                    >
+                        Date
+                    </label>
+
+                    <input
+                        id="transaction-date"
+                        type="date"
+                        required
+                        class="w-full
+                               border-2 border-on-surface
+                               rounded-full px-5 py-3
+                               bg-white
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <!-- Description -->
+                <div>
+                    <label
+                        for="transaction-description"
+                        class="block mb-2
+                               font-label uppercase
+                               tracking-wider text-sm"
+                    >
+                        Description
+                    </label>
+
+                    <input
+                        id="transaction-description"
+                        type="text"
+                        maxlength="500"
+                        placeholder="Optional details"
+                        class="w-full
+                               border-2 border-on-surface
+                               rounded-full px-5 py-3
+                               bg-white
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <!-- Error -->
+                <div
+                    id="transaction-error"
+                    role="alert"
+                    class="hidden md:col-span-2
+                           bg-error-container
+                           text-on-error-container
+                           border-2 border-error
+                           rounded-2xl p-4 font-bold"
+                ></div>
+
+                <!-- Submit -->
+                <div class="md:col-span-2">
+                    <button
+                        id="transaction-submit"
+                        type="submit"
+                        class="inline-flex
+                               items-center justify-center gap-2
+                               bg-primary-container
+                               border-3 border-on-surface
+                               rounded-full
+                               px-7 py-3
+                               font-bold text-lg
+                               button-shadow
+                               disabled:opacity-50
+                               disabled:cursor-not-allowed"
+                    >
+                        <span class="material-symbols-outlined">
+                            add
+                        </span>
+
+                        Save Transaction
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Category Management -->
+        <section
+            class="sticker-card
+                   bg-secondary-fixed
+                   rounded-[2rem]
+                   p-6 md:p-8 mb-12"
+        >
+            <div
+                class="flex items-center gap-3 mb-7"
+            >
+                <span
+                    class="material-symbols-outlined
+                           text-4xl text-secondary"
+                >
+                    category
+                </span>
+
+                <h2
+                    class="font-headline
+                           text-2xl md:text-3xl
+                           font-extrabold"
+                >
+                    Manage Categories
+                </h2>
+            </div>
+
+            <form
+                id="category-form"
+                class="grid grid-cols-1
+                       md:grid-cols-[1fr_1fr_auto]
+                       items-end gap-5"
+            >
+                <!-- Category Name -->
+                <div>
+                    <label
+                        for="category-name"
+                        class="block mb-2
+                               font-label uppercase
+                               tracking-wider text-sm"
+                    >
+                        Category name
+                    </label>
+
+                    <input
+                        id="category-name"
+                        type="text"
+                        maxlength="100"
+                        placeholder="Example: Food"
+                        required
+                        class="w-full
+                               border-2 border-on-surface
+                               rounded-full px-5 py-3
+                               bg-white
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <!-- Category Type -->
+                <div>
+                    <label
+                        for="category-type"
+                        class="block mb-2
+                               font-label uppercase
+                               tracking-wider text-sm"
+                    >
+                        Category type
+                    </label>
+
+                    <select
+                        id="category-type"
+                        required
+                        class="w-full
+                               border-2 border-on-surface
+                               rounded-full px-5 py-3
+                               bg-white
+                               focus:ring-0
+                               focus:border-secondary"
+                    >
+                        <option value="">
+                            Select type
+                        </option>
+
+                        <option value="0">
+                            Expense
+                        </option>
+
+                        <option value="1">
+                            Income
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Submit -->
+                <button
+                    id="category-submit"
+                    type="submit"
+                    class="inline-flex
+                           items-center justify-center gap-2
+                           bg-secondary text-white
+                           border-3 border-on-surface
+                           rounded-full
+                           px-7 py-3
+                           font-bold
+                           button-shadow
+                           disabled:opacity-50"
+                >
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+
+                    Add Category
+                </button>
+
+                <!-- Error -->
+                <div
+                    id="category-error"
+                    role="alert"
+                    class="hidden md:col-span-3
+                           bg-error-container
+                           text-on-error-container
+                           border-2 border-error
+                           rounded-2xl p-4 font-bold"
+                ></div>
+            </form>
+
+            <div
+                id="categories-container"
+                class="flex flex-wrap gap-3 mt-7"
+            ></div>
+        </section>
+
+        <!-- Transactions Heading -->
+        <section>
+            <div
+                class="flex flex-col
+                       md:flex-row
+                       md:items-center
+                       justify-between gap-5 mb-7"
+            >
+                <div
+                    class="flex items-center
+                           gap-4 flex-grow"
+                >
+                    <h2
+                        class="shrink-0
+                               bg-secondary
+                               text-white
+                               border-3 border-on-surface
+                               rounded-full
+                               px-5 py-2
+                               font-headline
+                               text-2xl font-extrabold
+                               -rotate-1"
+                    >
+                        Your Transactions
+                    </h2>
+
+                    <div
+                        class="section-line flex-grow"
+                    ></div>
+                </div>
+            </div>
+
+            <!-- Search and Filter -->
+            <div
+                class="grid grid-cols-1
+                       md:grid-cols-[1fr_220px]
+                       gap-4 mb-8"
+            >
+                <div class="relative">
+                    <span
+                        class="material-symbols-outlined
+                               absolute left-5 top-1/2
+                               -translate-y-1/2"
+                    >
+                        search
+                    </span>
+
+                    <input
+                        id="transaction-search"
+                        type="search"
+                        placeholder="Find where you spent it..."
+                        class="w-full
+                               border-3 border-on-surface
+                               rounded-full
+                               pl-14 pr-5 py-4
+                               bg-white
+                               button-shadow
+                               focus:ring-0
+                               focus:border-secondary"
+                    />
+                </div>
+
+                <select
+                    id="transaction-filter-type"
+                    class="w-full
+                           border-3 border-on-surface
+                           rounded-full
+                           px-5 py-4
+                           bg-white
+                           button-shadow
+                           focus:ring-0
+                           focus:border-secondary"
+                >
+                    <option value="all">
+                        All transactions
+                    </option>
+
+                    <option value="expense">
+                        Expenses
+                    </option>
+
+                    <option value="income">
+                        Income
+                    </option>
+                </select>
+            </div>
+
+            <!-- Loading -->
+            <div
+                id="transactions-loading"
+                class="hidden
+                       text-center py-12"
+            >
+                <span
+                    class="material-symbols-outlined
+                           text-5xl animate-spin
+                           text-secondary"
+                >
+                    progress_activity
+                </span>
+
+                <p class="mt-3 font-bold">
+                    Loading transactions...
+                </p>
+            </div>
+
+            <!-- Empty state -->
+            <div
+                id="transactions-empty"
+                class="hidden
+                       sticker-card-small
+                       bg-surface-container-lowest
+                       rounded-[2rem]
+                       p-10 text-center"
+            >
+                <span
+                    class="material-symbols-outlined
+                           text-6xl text-secondary"
+                >
+                    receipt_long
+                </span>
+
+                <h3
+                    class="font-headline
+                           text-2xl font-extrabold
+                           mt-4"
+                >
+                    No transactions yet
+                </h3>
+
+                <p
+                    class="mt-2
+                           text-on-surface-variant
+                           font-semibold"
+                >
+                    Add your first income or expense above.
+                </p>
+            </div>
+
+            <!-- Dynamic transactions -->
+            <div
+                id="transactions-container"
+                class="grid grid-cols-1
+                       md:grid-cols-2
+                       gap-6"
+            ></div>
+        </section>
+    </main>
+
+    <!-- Mobile navbar generated by layout.js -->
+    <div id="app-navbar"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/auth-guard.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/categories.js"></script>
+    <script src="assets/js/transactions.js"></script>
+</body>
+</html>

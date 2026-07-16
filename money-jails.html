@@ -1,267 +1,411 @@
 <!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Money Jails | Fizcal Funhouse</title>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Money Jails | Fizcal Funhouse</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Space+Grotesk:wght@700&amp;family=Quicksand:wght@500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "on-primary-fixed": "#221b00",
-                    "surface-tint": "#705d00",
-                    "primary-fixed": "#ffe16d",
-                    "on-primary-fixed-variant": "#544600",
-                    "on-secondary-fixed": "#2f004c",
-                    "primary": "#705d00",
-                    "surface-variant": "#e4e2e1",
-                    "inverse-primary": "#e9c400",
-                    "tertiary-container": "#ffcfc2",
-                    "outline": "#7e775f",
-                    "surface-container-low": "#f6f3f2",
-                    "tertiary": "#b12d00",
-                    "on-tertiary": "#ffffff",
-                    "secondary": "#8d00d9",
-                    "surface-dim": "#dcd9d9",
-                    "on-background": "#1b1c1c",
-                    "on-secondary-fixed-variant": "#6e00ab",
-                    "on-error-container": "#93000a",
-                    "on-secondary-container": "#fffbff",
-                    "tertiary-fixed-dim": "#ffb5a0",
-                    "inverse-on-surface": "#f3f0f0",
-                    "on-tertiary-fixed-variant": "#872000",
-                    "on-primary-container": "#705e00",
-                    "error-container": "#ffdad6",
-                    "on-tertiary-container": "#b22e00",
-                    "primary-fixed-dim": "#e9c400",
-                    "on-tertiary-fixed": "#3b0900",
-                    "error": "#ba1a1a",
-                    "surface-container-lowest": "#ffffff",
-                    "surface": "#fcf9f8",
-                    "primary-container": "#ffd700",
-                    "background": "#fcf9f8",
-                    "tertiary-fixed": "#ffdbd1",
-                    "on-primary": "#ffffff",
-                    "secondary-fixed": "#f3daff",
-                    "surface-container-highest": "#e4e2e1",
-                    "outline-variant": "#d0c6ab",
-                    "surface-container-high": "#eae7e7",
-                    "surface-bright": "#fcf9f8",
-                    "on-error": "#ffffff",
-                    "on-surface": "#1b1c1c",
-                    "secondary-fixed-dim": "#e3b5ff",
-                    "inverse-surface": "#303030",
-                    "secondary-container": "#aa30fa",
-                    "on-secondary": "#ffffff",
-                    "on-surface-variant": "#4d4732",
-                    "surface-container": "#f0eded"
-            },
-            "borderRadius": {
-                    "DEFAULT": "1rem",
-                    "lg": "2rem",
-                    "xl": "3rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "margin-mobile": "20px",
-                    "base": "8px",
-                    "margin-desktop": "40px",
-                    "container-max": "1200px",
-                    "gutter": "16px"
-            },
-            "fontFamily": {
-                    "headline-lg-mobile": ["Plus Jakarta Sans"],
-                    "label-caps": ["Space Grotesk"],
-                    "body-lg": ["Quicksand"],
-                    "headline-lg": ["Plus Jakarta Sans"],
-                    "headline-md": ["Plus Jakarta Sans"],
-                    "body-md": ["Quicksand"]
-            },
-            "fontSize": {
-                    "headline-lg-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
-                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet"
+    />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed": "#221b00",
+                        "surface-tint": "#705d00",
+                        "primary-fixed": "#ffe16d",
+                        "on-primary-fixed-variant": "#544600",
+                        "on-secondary-fixed": "#2f004c",
+                        "primary": "#705d00",
+                        "surface-variant": "#e4e2e1",
+                        "inverse-primary": "#e9c400",
+                        "tertiary-container": "#ffcfc2",
+                        "outline": "#7e775f",
+                        "surface-container-low": "#f6f3f2",
+                        "tertiary": "#b12d00",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#8d00d9",
+                        "surface-dim": "#dcd9d9",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed-variant": "#6e00ab",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed-dim": "#ffb5a0",
+                        "inverse-on-surface": "#f3f0f0",
+                        "on-tertiary-fixed-variant": "#872000",
+                        "on-primary-container": "#705e00",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#b22e00",
+                        "primary-fixed-dim": "#e9c400",
+                        "on-tertiary-fixed": "#3b0900",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "primary-container": "#ffd700",
+                        "background": "#fcf9f8",
+                        "tertiary-fixed": "#ffdbd1",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#f3daff",
+                        "surface-container-highest": "#e4e2e1",
+                        "outline-variant": "#d0c6ab",
+                        "surface-container-high": "#eae7e7",
+                        "surface-bright": "#fcf9f8",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "secondary-fixed-dim": "#e3b5ff",
+                        "inverse-surface": "#303030",
+                        "secondary-container": "#aa30fa",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#4d4732",
+                        "surface-container": "#f0eded"
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        lg: "2rem",
+                        xl: "3rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "margin-mobile": "20px",
+                        base: "8px",
+                        "margin-desktop": "40px",
+                        "container-max": "1200px",
+                        gutter: "16px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-caps": ["Space Grotesk"],
+                        "body-lg": ["Quicksand"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Quicksand"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": [
+                            "32px",
+                            {
+                                lineHeight: "36px",
+                                letterSpacing: "-0.02em",
+                                fontWeight: "800"
+                            }
+                        ],
+                        "label-caps": [
+                            "12px",
+                            {
+                                lineHeight: "16px",
+                                letterSpacing: "0.1em",
+                                fontWeight: "700"
+                            }
+                        ],
+                        "body-lg": [
+                            "18px",
+                            {
+                                lineHeight: "28px",
+                                fontWeight: "500"
+                            }
+                        ],
+                        "headline-lg": [
+                            "40px",
+                            {
+                                lineHeight: "48px",
+                                letterSpacing: "-0.02em",
+                                fontWeight: "800"
+                            }
+                        ],
+                        "headline-md": [
+                            "24px",
+                            {
+                                lineHeight: "32px",
+                                fontWeight: "700"
+                            }
+                        ],
+                        "body-md": [
+                            "16px",
+                            {
+                                lineHeight: "24px",
+                                fontWeight: "500"
+                            }
+                        ]
+                    }
+                }
             }
-          },
-        },
-      }
+        };
     </script>
-<style>
-      body {
-        -webkit-tap-highlight-color: transparent;
-      }
-      .sticker-shadow {
-        box-shadow: 6px 6px 0px 0px rgba(27,28,28,1);
-      }
-      .sticker-shadow-sm {
-        box-shadow: 3px 3px 0px 0px rgba(27,28,28,1);
-      }
-      .active-press:active {
-        transform: translate(3px, 3px);
-        box-shadow: none;
-      }
-      .bounce-hover:hover {
-        transform: scale(1.02) rotate(1deg);
-      }
-      @keyframes stripes {
-        from { background-position: 0 0; }
-        to { background-position: 40px 0; }
-      }
-      .animate-stripes {
-        background-image: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
-        background-size: 40px 40px;
-        animation: stripes 2s linear infinite;
-      }
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .sticker-shadow {
+            box-shadow: 6px 6px 0 0 rgba(27, 28, 28, 1);
+        }
+
+        .sticker-shadow-sm {
+            box-shadow: 3px 3px 0 0 rgba(27, 28, 28, 1);
+        }
+
+        .active-press:active {
+            transform: translate(3px, 3px);
+            box-shadow: none;
+        }
+
+        .bounce-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .bounce-hover:hover {
+            transform: scale(1.02) rotate(1deg);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings:
+                "FILL" 0,
+                "wght" 500,
+                "GRAD" 0,
+                "opsz" 24;
+        }
+
+        @keyframes stripes {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 40px 0;
+            }
+        }
+
+        .animate-stripes {
+            background-image: linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 40px 40px;
+            animation: stripes 2s linear infinite;
+        }
     </style>
-<link href="assets/css/layout.css" rel="stylesheet"/></head>
-<body class="bg-background text-on-surface font-body-md text-body-md overflow-x-hidden"><div id="app-header"></div>
-<!-- Top Navigation Bar -->
 
-<main class="max-w-container-max mx-auto px-margin-mobile py-8 pb-32">
-<!-- Hero Summary Section -->
-<section class="mb-12 flex flex-col md:flex-row items-center gap-8 bg-primary-container p-8 rounded-lg border-4 border-on-surface sticker-shadow">
-<div class="w-32 h-32 flex-shrink-0">
-<img alt="Logo" class="w-full h-full object-contain rotate-[-5deg]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_zIhP1Ca4TXCvoChU9DgXgSz6eY3vljGhqGE2RIbO3PmosXJFiUsygXiboQD2T-_tjxJqvCBzcLxJcS00RuFtn0BDwz9L9v6QHGKguVCOclUgRNZ_zmzIk5iUJH87JQfuUTMlLmd1DUVtHEH7BdOFozGINl4YbMv8l5fBwQOTTFyB_lC5e0cs2E55St1hGECo8rsIcEWD93pPleXSO3WWJmyJ8MCAGwf2n2IGD5wrJvRjjdjPujtO2Q"/>
-</div>
-<div class="flex-grow text-center md:text-left">
-<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2">Money Jails</h2>
-<p class="font-body-lg text-body-lg text-on-primary-container max-w-xl">
-                    You've locked up <span class="bg-white px-2 py-1 rounded border-2 border-on-surface font-bold text-secondary">64%</span> of your loot this month. Nice job, Sheriff! 🤠
+    <link href="assets/css/layout.css" rel="stylesheet" />
+</head>
+
+<body class="bg-background text-on-surface font-body-md text-body-md overflow-x-hidden">
+    <div id="app-header"></div>
+
+    <main class="max-w-container-max mx-auto px-margin-mobile py-8 pb-32">
+        <section
+            class="mb-12 flex flex-col md:flex-row items-center gap-8 bg-primary-container p-8 rounded-lg border-4 border-on-surface sticker-shadow"
+        >
+            <div class="w-32 h-32 flex-shrink-0">
+                <img
+                    alt="Fizcal Funhouse Logo"
+                    class="w-full h-full object-contain rotate-[-5deg]"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_zIhP1Ca4TXCvoChU9DgXgSz6eY3vljGhqGE2RIbO3PmosXJFiUsygXiboQD2T-_tjxJqvCBzcLxJcS00RuFtn0BDwz9L9v6QHGKguVCOclUgRNZ_zmzIk5iUJH87JQfuUTMlLmd1DUVtHEH7BdOFozGINl4YbMv8l5fBwQOTTFyB_lC5e0cs2E55St1hGECo8rsIcEWD93pPleXSO3WWJmyJ8MCAGwf2n2IGD5wrJvRjjdjPujtO2Q"
+                />
+            </div>
+
+            <div class="flex-grow text-center md:text-left">
+                <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2">
+                    Money Jails
+                </h1>
+
+                <p
+                    id="overall-budget-message"
+                    class="font-body-lg text-body-lg text-on-primary-container max-w-xl"
+                >
+                    Loading your monthly budget summary...
                 </p>
-<!-- Master Progress -->
-<div class="mt-6 w-full h-8 bg-on-primary-fixed-variant/10 rounded-full border-4 border-on-surface overflow-hidden relative">
-<div class="h-full w-[64%] bg-secondary animate-stripes border-r-4 border-on-surface"></div>
-</div>
-</div>
-</section>
-<!-- Budget Cards Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Housing Jail -->
-<div class="bg-white border-4 border-on-surface p-6 rounded-lg sticker-shadow bounce-hover transition-all flex flex-col gap-4 group">
-<div class="flex justify-between items-start">
-<div class="w-14 h-14 bg-secondary-fixed flex items-center justify-center border-2 border-on-surface rounded-full shadow-[3px_3px_0px_0px_rgba(27,28,28,1)]">
-<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">home</span>
-</div>
-<span class="bg-primary-container text-primary font-bold px-3 py-1 rounded-full border-2 border-on-surface text-label-caps">STABLE</span>
-</div>
-<div>
-<h3 class="font-headline-md text-headline-md">The Nest</h3>
-<p class="text-on-surface-variant font-medium">Housing &amp; Bills</p>
-</div>
-<div class="space-y-2 mt-2">
-<div class="flex justify-between text-label-caps">
-<span>LOCKED UP</span>
-<span class="font-black">$1,200 / $1,800</span>
-</div>
-<div class="h-4 w-full bg-surface-container-highest rounded-full border-2 border-on-surface overflow-hidden">
-<div class="h-full w-[66%] bg-primary"></div>
-</div>
-<p class="text-primary font-bold mt-2">✨ Looking good!</p>
-</div>
-</div>
-<!-- Dining Jail -->
-<div class="bg-white border-4 border-on-surface p-6 rounded-lg sticker-shadow bounce-hover transition-all flex flex-col gap-4">
-<div class="flex justify-between items-start">
-<div class="w-14 h-14 bg-primary-fixed flex items-center justify-center border-2 border-on-surface rounded-full shadow-[3px_3px_0px_0px_rgba(27,28,28,1)]">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">restaurant</span>
-</div>
-<span class="bg-tertiary-fixed text-tertiary font-bold px-3 py-1 rounded-full border-2 border-on-surface text-label-caps">WARNING</span>
-</div>
-<div>
-<h3 class="font-headline-md text-headline-md">The Belly</h3>
-<p class="text-on-surface-variant font-medium">Dining &amp; Snacks</p>
-</div>
-<div class="space-y-2 mt-2">
-<div class="flex justify-between text-label-caps">
-<span>LOCKED UP</span>
-<span class="font-black">$420 / $500</span>
-</div>
-<div class="h-4 w-full bg-surface-container-highest rounded-full border-2 border-on-surface overflow-hidden">
-<div class="h-full w-[84%] bg-tertiary"></div>
-</div>
-<p class="text-tertiary font-bold mt-2">🍔 Watch it, glutton!</p>
-</div>
-</div>
-<!-- Entertainment Jail (RED/OVER) -->
-<div class="bg-error-container border-4 border-on-surface p-6 rounded-lg sticker-shadow bounce-hover transition-all flex flex-col gap-4">
-<div class="flex justify-between items-start">
-<div class="w-14 h-14 bg-error text-white flex items-center justify-center border-2 border-on-surface rounded-full shadow-[3px_3px_0px_0px_rgba(27,28,28,1)]">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">videogame_asset</span>
-</div>
-<span class="bg-error text-white font-bold px-3 py-1 rounded-full border-2 border-on-surface text-label-caps">CRITICAL</span>
-</div>
-<div>
-<h3 class="font-headline-md text-headline-md">The Fun Box</h3>
-<p class="text-on-surface-variant font-medium">Entertainment</p>
-</div>
-<div class="space-y-2 mt-2">
-<div class="flex justify-between text-label-caps">
-<span>BUSTED</span>
-<span class="font-black">$350 / $250</span>
-</div>
-<div class="h-4 w-full bg-white rounded-full border-2 border-on-surface overflow-hidden">
-<div class="h-full w-full bg-error animate-pulse"></div>
-</div>
-<p class="text-error font-black mt-2 text-center bg-white/50 p-2 border-2 border-error rounded-lg">🚨 OVER LIMIT! ABORT MISSION!</p>
-</div>
-</div>
-<!-- Action Card: Add New -->
-<button class="bg-surface border-4 border-dashed border-on-surface-variant p-8 rounded-lg flex flex-col items-center justify-center gap-4 hover:border-primary hover:bg-primary-container/20 transition-all active-press">
-<div class="w-16 h-16 bg-white flex items-center justify-center border-4 border-on-surface rounded-full shadow-[4px_4px_0px_0px_rgba(27,28,28,1)]">
-<span class="material-symbols-outlined text-4xl font-black">add</span>
-</div>
-<span class="font-headline-md text-headline-md">Add a New Money Jail</span>
-</button>
-</div>
-<!-- Tip Section -->
-<section class="mt-16 bg-secondary-fixed border-4 border-on-surface p-8 rounded-lg sticker-shadow flex flex-col md:flex-row items-center gap-6 relative overflow-hidden">
-<div class="absolute -right-8 -top-8 rotate-[15deg] opacity-20">
-<span class="material-symbols-outlined text-[120px]">savings</span>
-</div>
-<div class="w-16 h-16 bg-white border-2 border-on-surface rounded-full flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(27,28,28,1)] z-10">
-<span class="material-symbols-outlined text-secondary text-3xl">lightbulb</span>
-</div>
-<div class="z-10">
-<h4 class="font-headline-md text-headline-md text-on-secondary-fixed mb-1">A Little Whisper</h4>
-<p class="font-body-lg text-body-lg text-on-secondary-fixed-variant">
-                    You're doing so good you could hide <span class="font-black underline">$400</span> under your mattress (or in a High-Yield account, whatever). 🍯
+
+                <div
+                    class="mt-6 w-full h-8 bg-on-primary-fixed-variant/10 rounded-full border-4 border-on-surface overflow-hidden relative"
+                >
+                    <div
+                        id="overall-budget-progress"
+                        class="h-full bg-secondary animate-stripes border-r-4 border-on-surface transition-all duration-500"
+                        style="width: 0%"
+                    ></div>
+                </div>
+
+                <p class="mt-3 font-bold">
+                    <span id="overall-budget-percentage">0%</span>
+                    used
                 </p>
-</div>
-</section>
-</main>
-<!-- Bottom Navigation Bar (Mobile) -->
+            </div>
+        </section>
 
-<!-- Floating Action Button -->
-<button class="fixed bottom-24 right-6 md:bottom-10 md:right-10 bg-primary-container border-4 border-on-surface p-4 rounded-full shadow-[6px_6px_0px_0px_rgba(27,28,28,1)] active-press hover:rotate-6 transition-transform z-40">
-<span class="material-symbols-outlined text-4xl font-bold">add</span>
-</button>
-<script>
-        // Micro-interaction for cards to feel "bouncy"
-        document.querySelectorAll('.bounce-hover').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                const rotation = (Math.random() - 0.5) * 4;
-                card.style.transform = `scale(1.02) rotate(${rotation}deg)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `scale(1) rotate(0deg)`;
-            });
-        });
+        <section
+            id="add-budget-section"
+            class="bg-white border-4 border-on-surface p-6 rounded-lg sticker-shadow mb-12"
+        >
+            <div class="flex items-center gap-3 mb-6">
+                <span class="material-symbols-outlined text-secondary text-3xl">
+                    savings
+                </span>
 
-        // Simple click effect for progress bars
-        document.querySelectorAll('.animate-stripes').forEach(bar => {
-            bar.parentElement.addEventListener('click', () => {
-                bar.classList.add('scale-y-110');
-                setTimeout(() => bar.classList.remove('scale-y-110'), 200);
-            });
-        });
-    </script>
-<div id="app-navbar"></div><script src="assets/js/layout.js"></script></body></html>
+                <h2 class="font-headline-md text-headline-md">
+                    Add Budget
+                </h2>
+            </div>
+
+            <form id="budget-form" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label
+                        for="budget-category"
+                        class="font-label-caps text-label-caps text-on-surface-variant block mb-2"
+                    >
+                        Expense category
+                    </label>
+
+                    <select
+                        id="budget-category"
+                        required
+                        class="w-full border-2 border-on-surface rounded-full px-5 py-3 focus:border-secondary focus:ring-0"
+                    >
+                        <option value="">Select category</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label
+                        for="budget-amount"
+                        class="font-label-caps text-label-caps text-on-surface-variant block mb-2"
+                    >
+                        Budget amount
+                    </label>
+
+                    <input
+                        id="budget-amount"
+                        type="number"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="0.00"
+                        required
+                        class="w-full border-2 border-on-surface rounded-full px-5 py-3 focus:border-secondary focus:ring-0"
+                    />
+                </div>
+
+                <div>
+                    <label
+                        for="budget-month"
+                        class="font-label-caps text-label-caps text-on-surface-variant block mb-2"
+                    >
+                        Month
+                    </label>
+
+                    <input
+                        id="budget-month"
+                        type="month"
+                        required
+                        class="w-full border-2 border-on-surface rounded-full px-5 py-3 focus:border-secondary focus:ring-0"
+                    />
+                </div>
+
+                <p
+                    id="budget-error"
+                    role="alert"
+                    class="hidden md:col-span-3 bg-error-container text-on-error-container border-2 border-error rounded-lg p-3 font-bold"
+                ></p>
+
+                <div class="md:col-span-3">
+                    <button
+                        id="budget-submit"
+                        type="submit"
+                        class="bg-primary-container text-on-primary-container border-2 border-on-surface rounded-full px-7 py-3 font-bold sticker-shadow-sm active-press disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        Save Budget
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section>
+            <div class="flex items-center gap-4 mb-6">
+                <h2
+                    class="font-headline-md text-headline-md bg-secondary text-on-secondary px-4 py-1 rounded-lg border-2 border-on-surface -rotate-1"
+                >
+                    Your Budgets
+                </h2>
+
+                <div class="flex-grow h-1 bg-on-surface opacity-10 rounded-full"></div>
+            </div>
+
+            <div
+                id="budgets-container"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                aria-live="polite"
+            >
+                <p class="text-on-surface-variant">
+                    Loading budgets...
+                </p>
+            </div>
+        </section>
+
+        <section
+            class="mt-16 bg-secondary-fixed border-4 border-on-surface p-8 rounded-lg sticker-shadow flex flex-col md:flex-row items-center gap-6 relative overflow-hidden"
+        >
+            <div class="absolute -right-8 -top-8 rotate-[15deg] opacity-20">
+                <span class="material-symbols-outlined text-[120px]">
+                    savings
+                </span>
+            </div>
+
+            <div
+                class="w-16 h-16 bg-white border-2 border-on-surface rounded-full flex items-center justify-center sticker-shadow-sm z-10"
+            >
+                <span class="material-symbols-outlined text-secondary text-3xl">
+                    lightbulb
+                </span>
+            </div>
+
+            <div class="z-10">
+                <h3 class="font-headline-md text-headline-md text-on-secondary-fixed mb-1">
+                    A Little Whisper
+                </h3>
+
+                <p class="font-body-lg text-body-lg text-on-secondary-fixed-variant">
+                    Create budgets for your expense categories and keep your spending under control.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <a
+        href="#add-budget-section"
+        aria-label="Go to Add Budget form"
+        class="fixed bottom-24 right-6 md:bottom-10 md:right-10 bg-primary-container border-4 border-on-surface p-4 rounded-full sticker-shadow active-press hover:rotate-6 transition-transform z-40"
+    >
+        <span class="material-symbols-outlined text-4xl font-bold">
+            add
+        </span>
+    </a>
+
+    <div id="app-navbar"></div>
+
+    <script src="assets/js/auth-guard.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/budgets.js"></script>
+</body>
+</html>
