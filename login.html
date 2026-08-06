@@ -4,12 +4,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Fizcal Funhouse - Login</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="stylesheet" href="assets/css/tailwind.generated.css" />
+<link rel="stylesheet" href="assets/css/decorations.css" />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Quicksand:wght@500;700&amp;family=Space+Grotesk:wght@700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;family=Quicksand:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
+<script type="application/json" data-legacy-tailwind-config>tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
@@ -118,6 +118,18 @@
             75% { transform: translateY(-8px) rotate(3deg); }
         }
 
+        @keyframes logo-dance {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            25% { transform: translateY(-10px) rotate(2deg); }
+            50% { transform: translateY(-4px) rotate(4deg) scale(1.04); }
+            75% { transform: translateY(-12px) rotate(-1deg); }
+        }
+
+        @keyframes dot-drift {
+            from { background-position: 0 0; }
+            to { background-position: 32px 32px; }
+        }
+
         .animate-float-wobble {
             display: inline-block;
             animation: float-wobble 2.5s ease-in-out infinite;
@@ -133,9 +145,15 @@
 
         .bg-wavy {
             background-color: #fcf9f8;
-            background-image: radial-gradient(#ffd700 1.5px, transparent 1.5px);
+            background-image: radial-gradient(#ffd700 2px, transparent 2px);
             background-size: 32px 32px;
-            opacity: 0.2;
+            opacity: 0.8;
+            animation: dot-drift 8s linear infinite;
+        }
+
+        .dancing-logo {
+            animation: logo-dance 3s ease-in-out infinite;
+            transform-origin: center bottom;
         }
 
         .sticker-card {
@@ -171,17 +189,11 @@
 <!-- Subtle Background Pattern -->
 <div class="fixed inset-0 bg-wavy -z-10"></div>
 <!-- Animated Floating Elements for "Funhouse" vibe -->
-<div class="floating-stickers top-10 left-10 text-secondary opacity-20 hidden lg:block" style="animation: wobble 4s infinite alternate">
-<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">celebration</span>
-</div>
-<div class="floating-stickers bottom-10 right-10 text-primary opacity-20 hidden lg:block" style="animation: wobble 3s infinite alternate-reverse">
-<span class="material-symbols-outlined text-[100px]" style="font-variation-settings: 'FILL' 1;">payments</span>
-</div>
 <main class="w-full max-w-md relative">
 <!-- Logo Section -->
 <div class="flex flex-col items-center mb-8">
 <div class="w-32 h-32 mb-4 hover:scale-110 transition-transform duration-300">
-<img alt="Fizcal Funhouse Goofy Bank Logo" class="w-full h-full object-contain filter drop-shadow-[4px_4px_0px_rgba(27,28,28,1)]" src="assets/images/logo.png"/>
+<img alt="Fizcal Funhouse Goofy Bank Logo" class="dancing-logo w-full h-full object-contain filter drop-shadow-[4px_4px_0px_rgba(27,28,28,1)]" src="assets/images/logo.png"/>
 </div>
 <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-center text-secondary-container">
                 Welcome Back to the Funhouse!
@@ -255,7 +267,7 @@
 </div>
 <!-- Forgot Link -->
 <div class="flex justify-end px-2">
-<a class="font-label-caps text-label-caps text-secondary hover:underline transition-all" href="#">Lost your keys?</a>
+<a class="font-label-caps text-label-caps text-secondary hover:underline transition-all" href="forgot-password.html">Lost your keys?</a>
 </div>
 <!-- Mesazhi i gabimit nga backend-i shfaqet këtu -->
 <p
@@ -287,12 +299,14 @@
 </p>
 <!-- Social Login / Alternative -->
 <div class="mt-8 pt-8 border-t-4 border-on-background/5 flex flex-col items-center gap-4">
-<p class="font-label-caps text-label-caps text-on-surface-variant">Or log in with magic:</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Magic login <span class="text-secondary">— coming soon</span></p>
 <div class="flex gap-4">
-<button type="button" class="w-14 h-14 bg-surface-container rounded-full border-2 border-on-background flex items-center justify-center hover:bg-secondary-fixed transition-colors squish-effect">
+<button type="button" disabled aria-label="Google login — coming soon" title="Coming soon"
+class="w-14 h-14 bg-surface-container rounded-full border-2 border-on-background flex items-center justify-center opacity-50 cursor-not-allowed">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
 </button>
-<button type="button" class="w-14 h-14 bg-surface-container rounded-full border-2 border-on-background flex items-center justify-center hover:bg-primary-fixed transition-colors squish-effect">
+<button type="button" disabled aria-label="Face login — coming soon" title="Coming soon"
+class="w-14 h-14 bg-surface-container rounded-full border-2 border-on-background flex items-center justify-center opacity-50 cursor-not-allowed">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">face</span>
 </button>
 </div>
@@ -302,7 +316,7 @@
 <div class="mt-8 text-center">
 <p class="font-body-md text-body-md">
                 Not a member of the party yet? 
-                <a class="text-secondary font-bold hover:underline underline-offset-4 decoration-4" href="#">Join the Funhouse</a>
+                <a class="text-secondary font-bold hover:underline underline-offset-4 decoration-4" href="register.html">Join the Funhouse</a>
 </p>
 </div>
 </main>
@@ -334,6 +348,7 @@
         icon.innerText = passwordIsHidden ? "visibility_off" : "visibility";
     });
 
+
     // Animacioni fillestar i kartës së login-it.
     window.addEventListener("DOMContentLoaded", () => {
         const card = document.querySelector(".sticker-card");
@@ -352,7 +367,10 @@
 
 
 <!-- api.js duhet të ngarkohet para login.js -->
+<script src="assets/js/config.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/login.js"></script>
+<script src="assets/js/page-decorations.js"></script>
 
 </body></html>
+

@@ -1,0 +1,48 @@
+@keyframes ff-sticker-float {
+  0%, 100% { transform: translateY(0) rotate(var(--decor-rotation)); }
+  50% { transform: translateY(-14px) rotate(calc(var(--decor-rotation) + 7deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-background-decor { animation: none; }
+}
+
+.ff-background-decor {
+  position: fixed;
+  z-index: 0;
+  font-size: var(--decor-size, 58px);
+  line-height: 1;
+  opacity: .16;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(4px 4px 0 rgba(27, 28, 28, .2));
+  animation: ff-sticker-float var(--decor-speed, 3.4s) ease-in-out infinite;
+  animation-delay: var(--decor-delay, 0s);
+}
+
+body > main,
+body > .wrap,
+.ff-app-header,
+.ff-bottom-nav {
+  position: relative;
+  z-index: 1000;
+}
+
+body.ff-auth-page {
+  display: block !important;
+  width: 100%;
+  padding: 32px 20px 56px !important;
+}
+
+body.ff-auth-page > main,
+body.ff-auth-page > .wrap {
+  margin-inline: auto;
+}
+
+@media (max-width: 900px) {
+  .ff-background-decor { opacity: .13; font-size: min(var(--decor-size, 58px), 44px); }
+}
+
+@media (max-width: 620px) {
+  .ff-background-decor { display: none; }
+}

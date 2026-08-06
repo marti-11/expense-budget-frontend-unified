@@ -105,9 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            if (password.length < 6) {
+            if (password.length < 8) {
                 showError(
-                    "Password must contain at least 6 characters."
+                    "Password must contain at least 8 characters."
                 );
 
                 return;
@@ -269,11 +269,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function saveAuthentication(
         response
     ) {
-        localStorage.setItem(
-            "accessToken",
-            response.token
-        );
-
         const user =
             response.user || {
                 id:
@@ -315,16 +310,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 700);
     }
 
-    function redirectAuthenticatedUser() {
-        const token =
-            localStorage.getItem(
-                "accessToken"
-            );
-
-        if (token) {
-            window.location.replace(
-                "home-base.html"
-            );
+    async function redirectAuthenticatedUser() {
+        try {
+            await apiRequest("/Auth/me");
+            window.location.replace("home-base.html");
+        } catch {
+            // No active cookie session.
         }
     }
 

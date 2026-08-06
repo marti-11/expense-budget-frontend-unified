@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="light" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Money Jails | Fizcal Funhouse</title>
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.generated.css" />
 
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&family=Quicksand:wght@500;700&display=swap"
@@ -17,8 +17,7 @@
         rel="stylesheet"
     />
 
-    <script id="tailwind-config">
-        tailwind.config = {
+    <script type="application/json" data-legacy-tailwind-config>tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
@@ -209,6 +208,7 @@
     </style>
 
     <link href="assets/css/layout.css" rel="stylesheet" />
+    <link href="assets/css/decorations.css" rel="stylesheet" />
 </head>
 
 <body class="bg-background text-on-surface font-body-md text-body-md overflow-x-hidden">
@@ -394,7 +394,7 @@
     <a
         href="#add-budget-section"
         aria-label="Go to Add Budget form"
-        class="fixed bottom-24 right-6 md:bottom-10 md:right-10 bg-primary-container border-4 border-on-surface p-4 rounded-full sticker-shadow active-press hover:rotate-6 transition-transform z-40"
+        class="ff-fab fixed bottom-24 right-6 md:bottom-10 md:right-10 bg-primary-container border-4 border-on-surface p-4 rounded-full sticker-shadow active-press hover:rotate-6 transition-transform z-40"
     >
         <span class="material-symbols-outlined text-4xl font-bold">
             add
@@ -403,9 +403,13 @@
 
     <div id="app-navbar"></div>
 
-    <script src="assets/js/auth-guard.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/notification-data.js"></script>
     <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth-guard.js"></script>
     <script src="assets/js/layout.js"></script>
+    <script src="assets/js/page-decorations.js"></script>
     <script src="assets/js/budgets.js"></script>
 </body>
 </html>
+

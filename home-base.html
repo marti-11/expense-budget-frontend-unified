@@ -10,9 +10,7 @@
 
     <title>Home Base | Fizcal Funhouse</title>
 
-    <script
-        src="https://cdn.tailwindcss.com?plugins=forms,container-queries"
-    ></script>
+    <link rel="stylesheet" href="assets/css/tailwind.generated.css" />
 
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Quicksand:wght@500;700&family=Space+Grotesk:wght@700&display=swap"
@@ -24,8 +22,7 @@
         rel="stylesheet"
     />
 
-    <script>
-        tailwind.config = {
+    <script type="application/json" data-legacy-tailwind-config>tailwind.config = {
             darkMode: "class",
 
             theme: {
@@ -232,6 +229,7 @@
         href="assets/css/layout.css"
         rel="stylesheet"
     />
+    <link href="assets/css/decorations.css" rel="stylesheet" />
 </head>
 
 <body
@@ -626,7 +624,7 @@
     <a
         href="spending-spree.html#add-transaction-section"
         aria-label="Add Transaction"
-        class="fixed bottom-24 right-6
+        class="ff-fab fixed bottom-24 right-6
                md:bottom-10 md:right-10
                bg-primary-container
                w-16 h-16 rounded-full
@@ -647,9 +645,13 @@
     <!-- Mobile navbar -->
     <div id="app-navbar"></div>
 
-  <script src="assets/js/auth-guard.js"></script>
-<script src="assets/js/api.js"></script>
+        <script src="assets/js/config.js"></script>
+        <script src="assets/js/notification-data.js"></script>
+        <script src="assets/js/api.js"></script>
+        <script src="assets/js/auth-guard.js"></script>
 <script src="assets/js/layout.js"></script>
+<script src="assets/js/page-decorations.js"></script>
 <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
+

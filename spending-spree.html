@@ -11,7 +11,7 @@
     <title>Spending Spree | Fizcal Funhouse</title>
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.generated.css" />
 
     <!-- Fonts -->
     <link
@@ -30,9 +30,9 @@
         href="assets/css/layout.css"
         rel="stylesheet"
     />
+    <link href="assets/css/decorations.css" rel="stylesheet" />
 
-    <script>
-        tailwind.config = {
+    <script type="application/json" data-legacy-tailwind-config>tailwind.config = {
             darkMode: "class",
 
             theme: {
@@ -752,10 +752,14 @@
     <div id="app-navbar"></div>
 
     <!-- Scripts -->
-    <script src="assets/js/auth-guard.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/notification-data.js"></script>
     <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth-guard.js"></script>
     <script src="assets/js/layout.js"></script>
+    <script src="assets/js/page-decorations.js"></script>
     <script src="assets/js/categories.js"></script>
     <script src="assets/js/transactions.js"></script>
 </body>
 </html>
+

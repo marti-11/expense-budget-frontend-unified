@@ -1,0 +1,5 @@
+node_modules/
+previews/qa-*.png
+design-qa.md
+playwright-report/
+test-results/

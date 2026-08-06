@@ -55,11 +55,20 @@ document.addEventListener(
             document.getElementById(
                 "profile-error"
             );
+        const successElement = document.getElementById("profile-success");
 
-        const refreshButton =
-            document.getElementById(
-                "profile-refresh"
-            );
+        const editButton = document.getElementById("profile-edit");
+        const editPanel = document.getElementById("profile-edit-panel");
+        const editForm = document.getElementById("profile-edit-form");
+        const closeEditButton = document.getElementById("profile-edit-close");
+        const cancelButton = document.getElementById("profile-cancel");
+        const saveButton = document.getElementById("profile-save");
+        const firstNameInput = document.getElementById("profile-edit-first-name");
+        const lastNameInput = document.getElementById("profile-edit-last-name");
+        const phoneInput = document.getElementById("profile-edit-phone");
+        const currencyInput = document.getElementById("profile-edit-currency");
+        const imageFileInput = document.getElementById("profile-edit-image-file");
+        let currentProfile = null;
 
         if (
             !fullNameElement ||
@@ -76,10 +85,11 @@ document.addEventListener(
 
         await loadProfile();
 
-        refreshButton?.addEventListener(
-            "click",
-            loadProfile
-        );
+        editButton?.addEventListener("click", openEditor);
+        closeEditButton?.addEventListener("click", closeEditor);
+        cancelButton?.addEventListener("click", closeEditor);
+        editForm?.addEventListener("submit", saveProfile);
+        imageFileInput?.addEventListener("change", previewProfileImage);
 
         async function loadProfile() {
             hideError();
@@ -90,6 +100,8 @@ document.addEventListener(
                     await apiRequest("/Auth/me");
 
                 renderProfile(profile);
+
+                currentProfile = profile;
 
                 saveCurrentUser(profile);
             } catch (error) {
@@ -174,6 +186,104 @@ document.addEventListener(
                 firstName,
                 lastName
             );
+        }
+
+        function openEditor() {
+            if (!currentProfile || !editPanel) return;
+
+            firstNameInput.value = cleanValue(currentProfile.firstName);
+            lastNameInput.value = cleanValue(currentProfile.lastName);
+            phoneInput.value = cleanValue(currentProfile.phoneNumber);
+            currencyInput.value = cleanValue(currentProfile.currency) || "EUR";
+            imageFileInput.value = "";
+            editPanel.classList.remove("hidden");
+            editPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+            firstNameInput.focus();
+            hideSuccess();
+        }
+
+        function closeEditor() {
+            editPanel?.classList.add("hidden");
+            hideError();
+
+            if (currentProfile) {
+                renderProfile(currentProfile);
+            }
+        }
+
+        function previewProfileImage() {
+            const file = imageFileInput.files?.[0];
+            if (!file) {
+                renderProfile(currentProfile);
+                return;
+            }
+
+            if (file.size > 2 * 1024 * 1024) {
+                showError("Photo must be smaller than 2 MB.");
+                imageFileInput.value = "";
+                return;
+            }
+
+            renderProfileImage(
+                URL.createObjectURL(file),
+                firstNameInput.value.trim(),
+                lastNameInput.value.trim()
+            );
+        }
+
+        async function saveProfile(event) {
+            event.preventDefault();
+            hideError();
+
+            const firstName = firstNameInput.value.trim();
+            const lastName = lastNameInput.value.trim();
+
+            if (!firstName || !lastName) {
+                showError("First name and last name are required.");
+                return;
+            }
+
+            if (!editForm.checkValidity()) {
+                editForm.reportValidity();
+                return;
+            }
+
+            saveButton.disabled = true;
+            saveButton.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Saving...';
+
+            try {
+                let updatedProfile = await apiRequest("/Auth/me", {
+                    method: "PUT",
+                    body: JSON.stringify({
+                        firstName,
+                        lastName,
+                        phoneNumber: phoneInput.value.trim() || null,
+                        currency: currencyInput.value,
+                        profileImageUrl: currentProfile.profileImageUrl || null
+                    })
+                });
+
+                const photo = imageFileInput.files?.[0];
+                if (photo) {
+                    const formData = new FormData();
+                    formData.append("photo", photo);
+                    updatedProfile = await apiRequest("/Auth/profile-photo", {
+                        method: "POST",
+                        body: formData
+                    });
+                }
+
+                currentProfile = updatedProfile;
+                renderProfile(updatedProfile);
+                saveCurrentUser(updatedProfile);
+                closeEditor();
+                showSuccess("✨ Profile updated — your new vibe is live!");
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                saveButton.disabled = false;
+                saveButton.innerHTML = '<span class="material-symbols-outlined">save</span> Save Changes';
+            }
         }
 
         function renderProfileImage(
@@ -298,34 +408,9 @@ document.addEventListener(
         }
 
         function setLoadingState(isLoading) {
-            if (!refreshButton) {
-                return;
-            }
-
-            refreshButton.disabled =
-                isLoading;
-
-            refreshButton.innerHTML =
-                isLoading
-                    ? `
-                        <span
-                            class="material-symbols-outlined
-                                   animate-spin"
-                        >
-                            progress_activity
-                        </span>
-
-                        Loading...
-                    `
-                    : `
-                        <span
-                            class="material-symbols-outlined"
-                        >
-                            refresh
-                        </span>
-
-                        Refresh Profile
-                    `;
+            if (!editButton) return;
+            editButton.disabled = isLoading;
+            editButton.setAttribute("aria-busy", String(isLoading));
         }
 
         function showError(message) {
@@ -357,6 +442,19 @@ document.addEventListener(
             errorElement.classList.add(
                 "hidden"
             );
+        }
+
+        function showSuccess(message) {
+            if (!successElement) return;
+            successElement.textContent = message;
+            successElement.classList.remove("hidden");
+            window.setTimeout(hideSuccess, 5000);
+        }
+
+        function hideSuccess() {
+            if (!successElement) return;
+            successElement.textContent = "";
+            successElement.classList.add("hidden");
         }
     }
 );

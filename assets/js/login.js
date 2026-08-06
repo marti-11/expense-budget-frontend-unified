@@ -35,8 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             // JWT përdoret më vonë për Categories, Transactions dhe Budgets.
-            localStorage.setItem("accessToken", response.token);
-
             // Ruajmë vetëm të dhënat publike të përdoruesit, jo password-in.
             localStorage.setItem(
                 "currentUser",
