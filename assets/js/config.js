@@ -1,5 +1,5 @@
 window.FIZCAL_CONFIG = {
-    apiBaseUrl: "http://127.0.0.1:5287/api"
+    apiBaseUrl: "https://expensebudget-api.onrender.com/api"
 };
 
 // Add verified business partners here. Never list a business as a partner
